@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026학년도 5월 고3 전국연합학력평가 - 고전 시가 [classic_poetry] 27~30</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root {
+    --ink: #172033;
+    --muted: #647084;
+    --line: #dbe3ed;
+    --soft-line: #edf2f7;
+    --paper: #ffffff;
+    --surface: #f7f9fc;
+    --surface-strong: #eef4f8;
+    --brand: #11645d;
+    --brand-2: #0e8a7f;
+    --blue: #275f9f;
+    --amber: #b75d18;
+    --danger: #dc2626;
+    --success: #15803d;
+    --shadow-sm: 0 1px 2px rgba(23, 32, 51, 0.06), 0 1px 8px rgba(23, 32, 51, 0.04);
+    --shadow-md: 0 18px 45px rgba(23, 32, 51, 0.10);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; color: var(--ink); background: radial-gradient(circle at top left, rgba(17,100,93,0.10), transparent 32rem), linear-gradient(180deg, #f4f7fa 0%, #e9eef4 100%); background-attachment: fixed; min-height: 100vh; }
+  .container { max-width: 1240px; margin: 28px auto; padding: 26px; background: rgba(255,255,255,0.92); min-height: 95vh; border: 1px solid rgba(219,227,237,0.95); border-radius: 16px; box-shadow: var(--shadow-md); }
+  .exam-header { position: relative; overflow: hidden; background: linear-gradient(135deg, #102c3d 0%, #11645d 62%, #b75d18 160%); padding: 26px 28px; border-radius: 12px; margin-bottom: 18px; box-shadow: 0 18px 36px rgba(16, 44, 61, 0.18); color: #fff; }
+  .exam-header:after { content: ""; position: absolute; inset: auto -80px -110px auto; width: 300px; height: 300px; background: rgba(255,255,255,0.08); border-radius: 999px; pointer-events: none; }
+  .exam-header h1 { position: relative; margin: 0 0 16px; max-width: 880px; font-size: 24px; line-height: 1.35; color: #fff; font-weight: 850; letter-spacing: 0; word-break: keep-all; }
+  .student-guide { position: relative; margin: 0 0 16px; border: 1px solid rgba(255,255,255,0.20); padding: 13px 15px; color: #eefbf8; background: rgba(255,255,255,0.10); border-radius: 10px; font-size: 13px; line-height: 1.72; word-break: keep-all; backdrop-filter: blur(8px); }
+  .student-guide b { color: #fff; font-weight: 850; }
+  .student-guide ul { margin: 6px 0 0 0; padding-left: 18px; }
+  .student-guide li { margin: 2px 0; }
+  .meta-grid { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; font-size: 12.5px; }
+  .meta-grid > div { min-height: 44px; padding: 9px 10px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.16); border-radius: 9px; }
+  .meta-label { display: block; font-weight: 800; color: #c8f3ec; margin: 0 0 3px; }
+  .meta-value { word-break: keep-all; color: #fff; line-height: 1.35; }
+  .student-info { border: 1px solid var(--line); padding: 18px; border-radius: 12px; background: var(--paper); margin-bottom: 14px; box-shadow: var(--shadow-sm); }
+  .student-info h2 { margin: 0 0 12px; font-size: 15px; color: var(--ink); font-weight: 850; }
+  .info-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  label { font-weight: 780; font-size: 13px; color: #405168; display: block; margin-bottom: 5px; }
+  input[type="text"], textarea { width: 100%; border: 1px solid #cfd9e5; border-radius: 8px; padding: 9px 11px; font-family: inherit; font-size: 13.5px; transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease; color: var(--ink); background: #fff; }
+  input[type="text"]:focus, textarea:focus { border-color: var(--brand-2); outline: none; box-shadow: 0 0 0 4px rgba(14, 138, 127, 0.14); }
+  textarea { min-height: 64px; resize: vertical; line-height: 1.65; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 22px; padding: 10px; border: 1px solid var(--line); border-radius: 12px; background: rgba(247,249,252,0.92); box-shadow: var(--shadow-sm); }
+  .highlight-toolbar { position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 12px; background: #fff; box-shadow: var(--shadow-sm); padding: 9px; margin: -4px 0 16px; }
+  .highlight-toolbar button { padding: 7px 10px; }
+  .swatch { width: 28px; height: 28px; border-radius: 999px; border: 2px solid #cbd5e1; cursor: pointer; padding: 0; }
+  .swatch.active { border-color: #0f172a; box-shadow: 0 0 0 2px #e2e8f0; }
+  .floating-highlight { position: fixed; z-index: 1000; display: none; gap: 6px; align-items: center; border: 1px solid #cbd5e1; border-radius: 999px; background: #fff; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.18); padding: 6px; }
+  .floating-highlight.visible { display: flex; }
+  .mini-swatch { width: 24px; height: 24px; border-radius: 999px; border: 1px solid #94a3b8; padding: 0; }
+  mark.student-highlight { border-radius: 3px; padding: 0 2px; }
+  mark[data-highlight-color="yellow"] { background: #fde68a; }
+  mark[data-highlight-color="green"] { background: #bbf7d0; }
+  mark[data-highlight-color="blue"] { background: #bfdbfe; }
+  mark[data-highlight-color="pink"] { background: #fbcfe8; }
+  .bottom-toolbar { margin: 26px 0 2px; padding-top: 10px; border-top: 1px solid var(--line); }
+  button { border: 1px solid transparent; border-radius: 8px; padding: 10px 16px; min-height: 40px; font-family: inherit; font-weight: 800; cursor: pointer; transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease, border-color 0.16s ease; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(23,32,51,0.08); }
+  button:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(23,32,51,0.14); }
+  button:active { transform: translateY(0); box-shadow: 0 1px 2px rgba(23,32,51,0.10); }
+  .primary { background: var(--brand); color: #fff; }
+  .primary:hover { background: var(--brand-2); }
+  .secondary { background: #ffffff; color: #334155; border-color: #cfd9e5; }
+  .secondary:hover { background: #f3f6f9; border-color: #b8c5d3; }
+  .accent { background: var(--amber); color: #fff; }
+  .accent:hover { background: #a64f12; }
+  .score-panel { display: none; border: 1px solid rgba(17,100,93,0.30); background: linear-gradient(180deg, #f0fdfa 0%, #ffffff 100%); border-radius: 12px; padding: 18px; text-align: center; margin-bottom: 20px; box-shadow: var(--shadow-sm); }
+  .score-panel.visible { display: block; }
+  .score-num { font-size: 38px; font-weight: 850; color: var(--brand); }
+  .content-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(400px, 0.92fr); gap: 24px; align-items: start; }
+  .content-grid > section { min-width: 0; }
+  .panel-title { display: flex; align-items: center; gap: 9px; margin: 0 0 14px; color: var(--ink); font-size: 18px; font-weight: 850; letter-spacing: 0; }
+  .panel-title:before { content: ""; width: 7px; height: 22px; border-radius: 99px; background: var(--brand); }
+  .passage-card { margin-bottom: 22px; }
+  .passage-label { display: inline-flex; align-items: center; background: #e9f6f3; color: var(--brand); border: 1px solid #bfe3dc; padding: 4px 10px; border-radius: 999px; font-weight: 850; font-size: 12px; }
+  .passage-title { margin-top: 10px; font-weight: 850; color: var(--ink); font-size: 17px; line-height: 1.45; word-break: keep-all; }
+  .passage-source { margin: 6px 0 10px; color: var(--muted); font-size: 12.5px; }
+  .passage-box { border: 1px solid var(--line); border-radius: 12px; padding: 20px 21px; line-height: 1.95; white-space: pre-wrap; word-break: keep-all; text-align: justify; text-justify: inter-word; background: #fff; box-shadow: var(--shadow-sm); font-size: 15px; }
+  .passage-reflection { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); padding: 14px; margin-top: 12px; }
+  .difficulty-row { display: flex; flex-wrap: wrap; gap: 8px 12px; margin: 8px 0 12px; }
+  .difficulty-row label { display: inline-flex; gap: 5px; align-items: center; font-weight: 700; cursor: pointer; margin: 0; padding: 6px 10px; border: 1px solid #d6e0eb; border-radius: 999px; background: #fff; }
+  .reflection-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .reflection-grid textarea { min-height: 74px; }
+  .section-label { display: inline-block; background: #eaf2fb; color: var(--blue); border: 1px solid #c7d9ed; padding: 2px 8px; border-radius: 999px; font-weight: 850; font-size: 11px; margin: 0 3px; vertical-align: middle; }
+  .concept-label { display: block; font-weight: 800; color: var(--brand); font-size: 11px; background: #f0fdf9; border-left: 3px solid var(--brand); padding: 2px 8px; margin: 0 0 5px -2px; border-radius: 0 3px 3px 0; }
+  .question-card { border: 1px solid var(--line); border-radius: 12px; margin-bottom: 18px; overflow: hidden; background: #fff; box-shadow: var(--shadow-sm); }
+  .question-head { background: linear-gradient(135deg, #17324a 0%, #11645d 100%); color: #fff; padding: 12px 15px; display: flex; gap: 10px; align-items: center; }
+  .q-num { font-size: 16px; font-weight: 850; }
+  .q-points { font-size: 11px; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.22); padding: 2px 8px; border-radius: 999px; font-weight: 800; }
+  .question-body { padding: 17px; }
+  .stem { font-weight: 800; line-height: 1.78; white-space: pre-wrap; word-break: keep-all; margin-bottom: 12px; text-align: justify; text-justify: inter-word; font-size: 15px; }
+  .view { border: 1px solid #d7d1c7; background: #fcfaf5; border-radius: 10px; padding: 14px; margin-bottom: 12px; white-space: normal; line-height: 1.8; word-break: keep-all; font-size: 14px; }
+  .view:before { content: "<보기>"; display: block; font-weight: 850; color: #6b5e4c; margin-bottom: 6px; }
+  .visual-warning { border-left: 4px solid var(--amber); background: #fff7ed; color: #9a3412; padding: 11px 14px; margin-bottom: 12px; font-weight: 800; border-radius: 0 9px 9px 0; }
+  .choices { list-style: none; padding: 0; margin: 0; }
+  .choice { display: flex; gap: 10px; align-items: flex-start; border: 1px solid transparent; border-radius: 9px; padding: 8px 9px; margin-bottom: 6px; cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease, padding 0.18s ease; }
+  .choice:hover { background: #f0fdfa; border-color: #9fd8d0; padding-left: 12px; }
+  .choice.correct { background: #dcfce7; border-color: #22c55e; }
+  .choice.wrong { background: #fee2e2; border-color: #ef4444; }
+  .choice-text { white-space: pre-wrap; line-height: 1.7; word-break: keep-all; text-align: justify; text-justify: inter-word; font-size: 14px; }
+  .explanation { display: none; border-top: 1px dashed #cbd5e1; margin-top: 14px; padding-top: 14px; }
+  .graded .explanation { display: block; }
+  .exp-main { background: #fff8e8; border-left: 4px solid #d88a1f; padding: 13px; border-radius: 0 9px 9px 0; white-space: normal; line-height: 1.82; word-break: keep-all; text-align: justify; text-justify: inter-word; font-size: 13.8px; margin-bottom: 10px; }
+  .exp-choice { background: var(--surface); border-radius: 9px; padding: 9px 12px; margin-top: 8px; white-space: normal; line-height: 1.72; word-break: keep-all; text-align: justify; text-justify: inter-word; font-size: 13.2px; border: 1px solid var(--soft-line); }
+  .note-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+  .submit-area { display: none; margin-top: 18px; }
+  .submit-area.visible { display: block; }
+  .status { margin-top: 12px; font-weight: 800; font-size: 14px; }
+  @media (max-width: 1020px) { .content-grid { grid-template-columns: 1fr; } .meta-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 900px) { .info-grid, .note-grid, .reflection-grid { grid-template-columns: 1fr; } .container { padding: 14px; margin: 0; border-radius: 0; } .exam-header { padding: 20px; border-radius: 10px; } .exam-header h1 { font-size: 21px; } .toolbar button { flex: 1 1 130px; } }
+  @media print { body { background: #fff; } .toolbar, .highlight-toolbar, .submit-area { display: none !important; } .container { max-width: none; box-shadow: none; padding: 0; } .content-grid { display: block; } .explanation { display: block !important; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="exam-header">
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+      <img src="school_logo.png" alt="창원경일고등학교 로고" style="height: 40px; width: 40px; border-radius: 6px; object-fit: cover; border: 1px solid rgba(255,255,255,0.2);">
+      <span style="font-size: 19px; font-weight: 900; color: #4ade80; letter-spacing: -0.5px;">창원경일고등학교</span>
+    </div>
+    <h1 id="title"></h1>
+    <div class="student-guide">
+      <b>작성 방법</b>
+      <ul>
+        <li>이름, 학번, 이메일 주소를 먼저 입력하세요.</li>
+        <li>문제를 풀고 답을 모두 선택한 뒤 <b>채점하기</b>를 누르세요.</li>
+        <li>틀린 문제를 중심으로 오답노트를 작성하세요. 맞힌 문제는 꼭 쓰지 않아도 됩니다.</li>
+        <li>본문 근거는 “시작 어절~끝 어절”로 적거나, “몇째 줄”처럼 찾을 수 있게 적어도 됩니다.</li>
+        <li>작성한 뒤 <b>선생님께 제출</b>을 눌러 제출하세요.</li>
+      </ul>
+    </div>
+    <div class="meta-grid" id="meta"></div>
+  </header>
+  <section class="student-info">
+    <h2>학생 정보</h2>
+    <div class="info-grid">
+      <div><label>이름</label><input type="text" id="studentName"></div>
+      <div><label>학번</label><input type="text" id="studentClass"></div>
+      <div><label>이메일</label><input type="text" id="studentEmail"></div>
+      <div><label>날짜</label><input type="text" id="today"></div>
+    </div>
+  </section>
+  <div class="toolbar">
+    <button class="primary" onclick="gradeExam()">채점하기</button>
+    <button class="secondary" onclick="saveToLocal()">저장</button>
+    <button class="secondary" onclick="loadFromLocal()">불러오기</button>
+    <button class="accent" onclick="downloadWrongnote()">JSON 다운로드</button>
+    <button class="secondary" onclick="window.print()">인쇄</button>
+    <button class="secondary" onclick="resetExam()">초기화</button>
+  </div>
+  <div class="highlight-toolbar" aria-label="highlight tools">
+    <button class="swatch active" data-color="yellow" style="background:#fde68a" title="노랑"></button>
+    <button class="swatch" data-color="green" style="background:#bbf7d0" title="초록"></button>
+    <button class="swatch" data-color="blue" style="background:#bfdbfe" title="파랑"></button>
+    <button class="swatch" data-color="pink" style="background:#fbcfe8" title="분홍"></button>
+    <button class="secondary" onclick="applyHighlight()">형광펜</button>
+    <button class="secondary" onclick="removeHighlightAtSelection()">지우기</button>
+    <button class="secondary" onclick="clearAllHighlights()">전체 지우기</button>
+  </div>
+  <div class="floating-highlight" id="floatingHighlight" aria-label="quick highlight">
+    <button class="mini-swatch" data-quick-color="yellow" style="background:#fde68a" title="노랑"></button>
+    <button class="mini-swatch" data-quick-color="green" style="background:#bbf7d0" title="초록"></button>
+    <button class="mini-swatch" data-quick-color="blue" style="background:#bfdbfe" title="파랑"></button>
+    <button class="mini-swatch" data-quick-color="pink" style="background:#fbcfe8" title="분홍"></button>
+  </div>
+  <section class="score-panel" id="scorePanel">
+    <div>채점 결과</div>
+    <div class="score-num" id="scoreNum">0점</div>
+    <div id="scoreDetail"></div>
+  </section>
+  <main class="content-grid">
+    <section>
+      <h2 class="panel-title">지문</h2>
+      <div id="passages"></div>
+    </section>
+    <section>
+      <h2 class="panel-title">문항</h2>
+      <div id="questions"></div>
+      <div class="submit-area" id="submitArea">
+        <button class="primary" onclick="submitToTeacher()">선생님께 제출</button>
+        <div class="status" id="submitStatus"></div>
+        <div id="teacherLinkBox" style="margin-top:10px;"></div>
+      </div>
+    </section>
+  </main>
+  <div class="toolbar bottom-toolbar">
+    <button class="primary" onclick="gradeExam()">채점하기</button>
+    <button class="secondary" onclick="saveToLocal()">저장</button>
+    <button class="secondary" onclick="loadFromLocal()">불러오기</button>
+    <button class="accent" onclick="downloadWrongnote()">JSON 다운로드</button>
+    <button class="secondary" onclick="window.print()">인쇄</button>
+    <button class="secondary" onclick="resetExam()">초기화</button>
+  </div>
+</div>
+<script>
+const DATA = {
+  "schemaVersion": "1.0.0",
+  "meta": {
+    "examName": "2026학년도 5월 고3 전국연합학력평가",
+    "examDate": "2026학년도 5월",
+    "subject": "국어",
+    "section": "고전 시가",
+    "questionRange": "27~30",
+    "sourceTitle": "노인가 / (나) / 영회잡곡",
+    "source": "작자 미상, 「노인가(老人歌)」 / 작자 미상 / 김득연, 「영회잡곡(咏懷雜曲)」",
+    "passageId": "set_27_30_classic_poetry",
+    "originalPassageLength": 951,
+    "jsonPassageLength": 942
+  },
+  "passages": [
+    {
+      "label": "(가)",
+      "title": "노인가(老人歌)",
+      "source": "작자 미상, 「노인가(老人歌)」",
+      "paragraphs": [
+        {
+          "paragraphNumber": 1,
+          "text": "㉠어와 청춘 소년들아 백발(白髮)보고 웃지마라\n덧없이 가는 세월 넨들 매양 젊을소냐\n적은덧 늙었으니 공(空)된 줄 알거니와\n소문없이 오는 백발 귀밑이 반백(半白)이라\n청좌없이 오는 백발 털끝마다 점점 흰다\n이리저리 혜여 보니 오는 백발 검을소냐\n위풍으로 제어하면 겁내야 아니올까\n기운으로 쫓아보면 못이기어 아니올까\n꾸짖어 물리치면 무색(無色)하야 아니올까\n욕하야 거절하면 노여하야 아니올까\nⓐ긴 창으로 찔러보면 무서워 아니올까\n드는 칼로 내쳐 치면 혼이 나서 아니올까\n휘장으로 가려볼까 방패로 막아볼까\n소진(蘇秦) 장의(張儀) 구변으로 달래면 아니올까\n좋은 음식 갖초 차려 인정 쓰면 아니올까\n할 수 없다 저 백발은 사람마다 겪는고나\n(중략)\n육십갑자(六十甲子) 곱아보니 덧없이 돌아온다\n사시절 살펴보니 덧없이도 지나간다\n늙을사록 분한 마음 정할 수 바이 없다\n편작(扁鵲)이 불러다가 늙는 병 고칠손가\n㉡불사약 얻어다가 쇠하지 않게 하야볼까\n주사야도(晝思夜度) 생각하나 늙을 밧 할 수 없다\n어와 설운지고 또 한말 들어 보소\n꽃이라도 떠러지면 오는 나비 돌아 가고\n나모라도 병이 들면 눈 먼 새도 아니 오네\n거미라도 떠러지면 물것대로 돌아 가고\n㉢옥식(玉食)도 쉬어지면 수채 구멍 찾아 가네\n세상일 생각하니 만사가 허사로다\n- 작자 미상, ｢노인가(老人歌)｣ -"
+        }
+      ]
+    },
+    {
+      "label": "(나)",
+      "title": "확인 필요",
+      "source": "작자 미상",
+      "paragraphs": [
+        {
+          "paragraphNumber": 1,
+          "text": "공도*라는 백발이요 못 면할손 죽음이라\n천황 지황 인황 후에 복희 신농 헌원씨며 요순우탕 문무주공\n성덕 없어 붕하셨나* ㉣어리석다 진시황은 만리장성 굳이 쌓고\n장수불사 하려다 여산의 고혼되고 구선하던 한무제도 승노반이\n허사되어 육십사의 붕하였으니 수요장단이 재천이라 그러한 도\n덕 영웅들은 유적이나 있거니와\n우리 같은 초로인생* 공수래공수거라 아니 놀고 무엇 하리\n- 작자 미상 -\n*공도(公道): 공평하고 바른 도리.\n*붕하셨나: 돌아가셨나.\n*초로인생(草露人生): 허무하고 덧없는 인생을 비유적으로 이르는 말."
+        }
+      ]
+    },
+    {
+      "label": "(다)",
+      "title": "영회잡곡(咏懷雜曲)",
+      "source": "김득연, 「영회잡곡(咏懷雜曲)」",
+      "paragraphs": [
+        {
+          "paragraphNumber": 1,
+          "text": "늙어 병든 몸이 이 산정(山亭)에 누워 있어\n세간 만사를 다 잊어 버렸노라\n다만당 바라는 일은 벗 오과다 하노라\n<제2수>\n벗이 올 이 없으니 ⓑ동문(洞門)이 잠겨 있다\n삼경(三逕) 송국죽(松菊竹)을 내 호온자 즐기노라\n매일에 이를 즐기어니 늙는 줄을 어이 알리\n<제6수>\n늙는 줄을 내 모르니 이내 몸이 한가하다\n시비인들 내 알며 영욕(榮辱)인들 내 알더냐\n㉤아마도 일단사 일표음*이야 내 분인가 하노라\n<제7수>\n- 김득연, ｢영회잡곡(咏懷雜曲)｣ -\n*일단사(一簞食) 일표음(一瓢飮): 청빈하고 소박한 생활을 이르는 말."
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "number": 27,
+      "stem": "[27~30] 다음 글을 읽고 물음에 답하시오.\n(가)\n㉠어와 청춘 소년들아 백발(白髮)보고 웃지마라\n덧없이 가는 세월 넨들 매양 젊을소냐\n적은덧 늙었으니 공(空)된 줄 알거니와\n소문없이 오는 백발 귀밑이 반백(半白)이라\n청좌없이 오는 백발 털끝마다 점점 흰다\n이리저리 혜여 보니 오는 백발 검을소냐\n위풍으로 제어하면 겁내야 아니올까\n기운으로 쫓아보면 못이기어 아니올까\n꾸짖어 물리치면 무색(無色)하야 아니올까\n욕하야 거절하면 노여하야 아니올까\nⓐ긴 창으로 찔러보면 무서워 아니올까\n드는 칼로 내쳐 치면 혼이 나서 아니올까\n휘장으로 가려볼까 방패로 막아볼까\n소진(蘇秦) 장의(張儀) 구변으로 달래면 아니올까\n좋은 음식 갖초 차려 인정 쓰면 아니올까\n할 수 없다 저 백발은 사람마다 겪는고나\n(중략)\n육십갑자(六十甲子) 곱아보니 덧없이 돌아온다\n사시절 살펴보니 덧없이도 지나간다\n늙을사록 분한 마음 정할 수 바이 없다\n편작(扁鵲)이 불러다가 늙는 병 고칠손가\n㉡불사약 얻어다가 쇠하지 않게 하야볼까\n주사야도(晝思夜度) 생각하나 늙을 밧 할 수 없다\n어와 설운지고 또 한말 들어 보소\n꽃이라도 떠러지면 오는 나비 돌아 가고\n나모라도 병이 들면 눈 먼 새도 아니 오네\n거미라도 떠러지면 물것대로 돌아 가고\n㉢옥식(玉食)도 쉬어지면 수채 구멍 찾아 가네\n세상일 생각하니 만사가 허사로다\n- 작자 미상, ｢노인가(老人歌)｣ -\n(나)\n공도*라는 백발이요 못 면할손 죽음이라\n천황 지황 인황 후에 복희 신농 헌원씨며 요순우탕 문무주공\n성덕 없어 붕하셨나* ㉣어리석다 진시황은 만리장성 굳이 쌓고\n장수불사 하려다 여산의 고혼되고 구선하던 한무제도 승노반이\n허사되어 육십사의 붕하였으니 수요장단이 재천이라 그러한 도\n덕 영웅들은 유적이나 있거니와\n우리 같은 초로인생* 공수래공수거라 아니 놀고 무엇 하리\n- 작자 미상 -\n*공도(公道): 공평하고 바른 도리.\n*붕하셨나: 돌아가셨나.\n*초로인생(草露人生): 허무하고 덧없는 인생을 비유적으로 이르는 말.\n(다)\n늙어 병든 몸이 이 산정(山亭)에 누워 있어\n세간 만사를 다 잊어 버렸노라\n다만당 바라는 일은 벗 오과다 하노라\n<제2수>\n벗이 올 이 없으니 ⓑ동문(洞門)이 잠겨 있다\n삼경(三逕) 송국죽(松菊竹)을 내 호온자 즐기노라\n매일에 이를 즐기어니 늙는 줄을 어이 알리\n<제6수>\n늙는 줄을 내 모르니 이내 몸이 한가하다\n시비인들 내 알며 영욕(榮辱)인들 내 알더냐\n㉤아마도 일단사 일표음*이야 내 분인가 하노라\n<제7수>\n- 김득연, ｢영회잡곡(咏懷雜曲)｣ -\n*일단사(一簞食) 일표음(一瓢飮): 청빈하고 소박한 생활을 이르는 말.\n27. (가)～(다)에 대한 설명으로 적절하지 않은 것은?",
+      "points": 2,
+      "hasView": false,
+      "view": "",
+      "choices": [
+        {
+          "number": 1,
+          "text": "(가)는 대구의 방식을 통해 시적 상황을 부각하고 있다."
+        },
+        {
+          "number": 2,
+          "text": "(나)는 나열의 방식을 통해 운율감을 형성하고 있다."
+        },
+        {
+          "number": 3,
+          "text": "(다)는 유사한 문장 구조를 반복하여 시적 의미를 강조하고 있다."
+        },
+        {
+          "number": 4,
+          "text": "(가)와 (나)는 모두, 색채어를 활용하여 대상의 속성을 드러내고\n있다."
+        },
+        {
+          "number": 5,
+          "text": "(가)와 (다)는 모두, 의인화된 대상을 활용하여 화자의 정서를 드\n러내고 있다."
+        }
+      ],
+      "needsReview": [
+        "diagram"
+      ],
+      "answer": 5,
+      "explanation": {
+        "main": "27. [출제의도] 표현상 특징 파악하기\n(가)는 ‘소문없이 오는 백발’, ‘청좌없이 오는 백발’\n등에서 ‘백발’을 의인화하여 머리가 하얗게 세는 것\n을 덧없어하는 화자의 정서를 드러내고 있다. 그러나\n(다)는 의인화된 대상을 활용하여 화자의 정서를 드\n러내고 있지 않으므로 적절하지 않다.\n① (가)는 ‘위풍으로 제어하면 겁내야 아니올까’, ‘기\n운으로 쫓아보면 못이기어 아니올까’ 등에서 대구의\n방식을 통해 시적 상황을 부각하고 있으므로 적절하\n다. ② (나)는 ‘천황 지황 인황 후에 복희 신농 헌원\n씨며 요순우탕 문무주공 성덕 없어 붕하셨나’에서 나\n열의 방식을 통해 운율감을 형성하고 있으므로 적절\n하다. ③ (다)는 ‘시비인들 내 알며 영욕인들 내 알\n더냐’에서 유사한 문장 구조를 반복하여 시적 의미를\n강조하고 있으므로 적절하다. ④ (가)와 (나)는 색채\n어인 ‘백발’을 활용하여 대상의 속성을 드러내고 있\n으므로 적절하다.",
+        "evidence": "확인 필요",
+        "choiceExplanations": {
+          "1": "(가)는 ‘위풍으로 제어하면 겁내야 아니올까’, ‘기\n운으로 쫓아보면 못이기어 아니올까’ 등에서 대구의\n방식을 통해 시적 상황을 부각하고 있으므로 적절하\n다.",
+          "2": "(나)는 ‘천황 지황 인황 후에 복희 신농 헌원\n씨며 요순우탕 문무주공 성덕 없어 붕하셨나’에서 나\n열의 방식을 통해 운율감을 형성하고 있으므로 적절\n하다.",
+          "3": "(다)는 ‘시비인들 내 알며 영욕인들 내 알\n더냐’에서 유사한 문장 구조를 반복하여 시적 의미를\n강조하고 있으므로 적절하다.",
+          "4": "(가)와 (나)는 색채\n어인 ‘백발’을 활용하여 대상의 속성을 드러내고 있\n으므로 적절하다.",
+          "5": "해설 확인 필요"
+        },
+        "trapType": "AI 분류 필요"
+      },
+      "pdfPage": 10
+    },
+    {
+      "number": 28,
+      "stem": "㉠～㉤에 대한 이해로 적절하지 않은 것은?",
+      "points": 2,
+      "hasView": false,
+      "view": "",
+      "choices": [
+        {
+          "number": 1,
+          "text": "㉠: 세월에 대한 경험을 바탕으로 상대에게 행동에 대한 경계를\n드러내고 있다."
+        },
+        {
+          "number": 2,
+          "text": "㉡: 불가능한 상황을 설정하여 원하는 것을 얻기 위해서는 시간이\n필요함을 드러내고 있다."
+        },
+        {
+          "number": 3,
+          "text": "㉢: 대상의 상황에 대한 가정을 바탕으로 세상일에 대한 깨달음을\n드러내고 있다."
+        },
+        {
+          "number": 4,
+          "text": "㉣: 역사적 인물의 행적을 서술하며 인물에 대한 평가를 드러내고\n있다."
+        },
+        {
+          "number": 5,
+          "text": "㉤: 분수에 맞는 삶을 영위하고자 하는 자세를 드러내고 있다."
+        }
+      ],
+      "needsReview": [
+        "diagram"
+      ],
+      "answer": 2,
+      "explanation": {
+        "main": "28. [출제의도] 세부 내용 이해하기\n㉡은 ‘불사약 얻어다가 쇠하지 않게 하야볼까’에서\n불가능한 상황을 설정하고 있다. 그러나 ‘주사야도\n생각하나 늙을 밧 할 수 없다’에서는 원하는 것을 얻\n기 위해서는 시간이 필요함을 드러내는 것이 아니라,\n많은 시간을 들여 생각해도 늙는 것은 어쩔 수 없다\n는 인식을 드러내고 있으므로 적절하지 않다.\n① ㉠은 ‘덧없이 가는 세월’에 대한 경험을 바탕으로\n‘소년들’에게 ‘백발보고 웃지’ 말라며 행동에 대한 경\n계를 드러내고 있으므로 적절하다. ③ ㉢은 ‘옥식도\n쉬어지면 수채 구멍 찾아’ 간다는 상황에 대한 가정\n을 바탕으로 ‘만사가 허사’라는 세상일에 대한 깨달\n음을 드러내고 있으므로 적절하다. ④ ㉣은 ‘만리장\n성 굳이 쌓고 장수불사 하려다 여산의 고혼’이 되었\n다는 ‘진시황’의 행적을 서술하며 인물에 대해 ‘어리\n석다’는 평가를 드러내고 있으므로 적절하다. ⑤ ㉤\n은 ‘일단사 일표음이야 내 분인가’ 한다며 분수에 맞\n는 삶을 영위하고자 하는 자세를 드러내고 있으므로\n적절하다.",
+        "evidence": "확인 필요",
+        "choiceExplanations": {
+          "1": "㉠은 ‘덧없이 가는 세월’에 대한 경험을 바탕으로\n‘소년들’에게 ‘백발보고 웃지’ 말라며 행동에 대한 경\n계를 드러내고 있으므로 적절하다.",
+          "2": "해설 확인 필요",
+          "3": "㉢은 ‘옥식도\n쉬어지면 수채 구멍 찾아’ 간다는 상황에 대한 가정\n을 바탕으로 ‘만사가 허사’라는 세상일에 대한 깨달\n음을 드러내고 있으므로 적절하다.",
+          "4": "㉣은 ‘만리장\n성 굳이 쌓고 장수불사 하려다 여산의 고혼’이 되었\n다는 ‘진시황’의 행적을 서술하며 인물에 대해 ‘어리\n석다’는 평가를 드러내고 있으므로 적절하다.",
+          "5": "㉤\n은 ‘일단사 일표음이야 내 분인가’ 한다며 분수에 맞\n는 삶을 영위하고자 하는 자세를 드러내고 있으므로\n적절하다."
+        },
+        "trapType": "AI 분류 필요"
+      },
+      "pdfPage": 10
+    },
+    {
+      "number": 29,
+      "stem": "ⓐ와 ⓑ에 대한 설명으로 가장 적절한 것은?",
+      "points": 2,
+      "hasView": false,
+      "view": "",
+      "choices": [
+        {
+          "number": 1,
+          "text": "ⓐ는 화자가 바라는 것을 이루기 위해 준비한 대상이고, ⓑ는 화\n자가 바라는 것을 미루게 하는 대상이다."
+        },
+        {
+          "number": 2,
+          "text": "ⓐ는 화자가 꺼리는 것을 차단하기 위한 대상이고, ⓑ는 화자가\n외부와 단절된 상태임을 알 수 있는 대상이다."
+        },
+        {
+          "number": 3,
+          "text": "ⓐ는 화자가 심리적으로 가깝게 여기고 있는 대상이고, ⓑ는 화자\n가 위축된 상황에 처해 있음을 알 수 있는 대상이다."
+        },
+        {
+          "number": 4,
+          "text": "ⓐ와 ⓑ는 모두, 화자가 자신의 과거를 후회하게 만드는 대상이다."
+        },
+        {
+          "number": 5,
+          "text": "ⓐ와 ⓑ는 모두, 화자가 자신의 상황이 변할 것이라는 믿음을 갖게\n하는 대상이다."
+        }
+      ],
+      "needsReview": [
+        "diagram"
+      ],
+      "answer": 2,
+      "explanation": {
+        "main": "29. [출제의도] 소재의 기능 파악하기\nⓐ는 화자가 꺼리는 ‘백발’을 찔러서 무섭게 하여 차\n단하기 위한 대상이고, ⓑ는 외부에서 ‘벗이 올 이\n없’는 화자의 단절된 상태를 알 수 있는 대상이므로\n적절하다.",
+        "evidence": "확인 필요",
+        "choiceExplanations": {
+          "1": "해설 확인 필요",
+          "2": "해설 확인 필요",
+          "3": "해설 확인 필요",
+          "4": "해설 확인 필요",
+          "5": "해설 확인 필요"
+        },
+        "trapType": "AI 분류 필요"
+      },
+      "pdfPage": 10
+    },
+    {
+      "number": 30,
+      "stem": "<보기>를 참고하여 (가)~(다)를 감상한 내용으로 적절하지 않은\n것은? [3점]",
+      "points": 3,
+      "hasView": true,
+      "view": "고전 시가에서 노년의 삶은 화자가 늙음에 대해 성찰하고 현재\n삶의 의미를 재정립하는 계기로 작용하기도 한다. 화자는 노년에\n겪는 신체적 변화나 다른 대상과의 비교를 통해 늙음을 거스를\n수 없는 자연의 섭리로 인식하며 인간 존재의 유한성과 한계를\n자각한다. 이때 화자는 자신의 노년을 부정하기도 하지만 현재의\n삶에 가치를 두고 남은 인생에 대해 긍정적 태도를 보이기도 한다.",
+      "choices": [
+        {
+          "number": 1,
+          "text": "(가)에서 ‘털끝마다 점점 흰’ 머리를 ‘이리저리 혜여 보’아도 ‘오는\n백발 검을소냐’는 것에서, 노년에 겪는 외면적 모습의 변화로 인\n해 늙음을 인식하는 화자의 모습을 엿볼 수 있군."
+        },
+        {
+          "number": 2,
+          "text": "(나)에서 ‘도덕 영웅들은 유적이나 있거니와’ ‘우리 같은 초로인\n생’ ‘아니 놀고 무엇 하’냐는 것에서, 다른 인물과의 비교를 통해\n현재의 삶을 수용하는 화자의 태도를 엿볼 수 있군."
+        },
+        {
+          "number": 3,
+          "text": "(다)에서 ‘송국죽’을 ‘매일’ ‘즐기어니 늙는 줄을 어이’ 아냐고 하\n는 것에서, 자연을 향유하며 노년의 삶을 긍정하는 화자의 태도를\n엿볼 수 있군."
+        },
+        {
+          "number": 4,
+          "text": "(가)에서 ‘할 수 없다’며 ‘백발은 사람마다 겪는’다고 하는 것과\n(나)에서 ‘백발’이 ‘공도’라고 하는 것에서, 늙음을 자연의 섭리로\n이해하는 화자의 모습을 엿볼 수 있군."
+        },
+        {
+          "number": 5,
+          "text": "(가)에서 ‘늙을사록 분한 마음 정할 수 바이 없다’고 하는 것과\n(다)에서 ‘늙는 줄을 내 모르니’ ‘영욕인들 내 알더냐’는 것에서,\n인간의 유한성을 인정하지 못하는 화자의 태도를 엿볼 수 있군."
+        }
+      ],
+      "needsReview": [
+        "diagram"
+      ],
+      "answer": 5,
+      "explanation": {
+        "main": "30. [출제의도] 외적 준거를 바탕으로 작품 감상하기\n(가)에서 ‘늙을사록 분한 마음 정할 수 바이 없다’고\n하는 것에서는, 늙을수록 분한 마음을 가지며 인간의\n유한성을 인정하지 못하는 화자의 태도를 엿볼 수\n있다. 그러나 (다)에서 ‘늙는 줄을 내 모르니’ ‘영욕\n인들 내 알더냐’는 것에서는, 영욕과 같은 세속적 욕\n망을 버리고 자연 속에서 만족하며 노년을 살아가는\n화자의 태도가 나타나고 있다. 따라서 인간의 유한성\n을 인정하지 못하는 화자의 태도를 엿볼 수 없으므\n로 적절하지 않다.\n① 노년에 머리가 하얗게 세는 외면적 모습의 변화\n로 인해 늙음을 인식하는 화자의 모습을 엿볼 수 있\n으므로 적절하다. ② 도덕 영웅들과의 비교를 통해\n초로인생인 자신의 현재 삶을 수용하며 여생을 즐기\n겠다는 화자의 태도를 엿볼 수 있으므로 적절하다.\n③ 매일 송국죽을 즐기며 늙는 줄을 모른다며 노년\n의 삶을 긍정하는 화자의 태도를 엿볼 수 있으므로\n적절하다. ④ 백발과 같은 신체의 노화를 자연의 섭\n리로 이해하는 화자의 모습을 엿볼 수 있으므로 적\n절하다.",
+        "evidence": "확인 필요",
+        "choiceExplanations": {
+          "1": "노년에 머리가 하얗게 세는 외면적 모습의 변화\n로 인해 늙음을 인식하는 화자의 모습을 엿볼 수 있\n으므로 적절하다.",
+          "2": "도덕 영웅들과의 비교를 통해\n초로인생인 자신의 현재 삶을 수용하며 여생을 즐기\n겠다는 화자의 태도를 엿볼 수 있으므로 적절하다.",
+          "3": "매일 송국죽을 즐기며 늙는 줄을 모른다며 노년\n의 삶을 긍정하는 화자의 태도를 엿볼 수 있으므로\n적절하다.",
+          "4": "백발과 같은 신체의 노화를 자연의 섭\n리로 이해하는 화자의 모습을 엿볼 수 있으므로 적\n절하다.",
+          "5": "해설 확인 필요"
+        },
+        "trapType": "AI 분류 필요"
+      },
+      "pdfPage": 11
+    }
+  ],
+  "submissionConfig": {
+    "mode": "google",
+    "teacherEmail": "",
+    "googleScriptUrl": "https://script.google.com/macros/s/AKfycbwbVvkHed35wCaD19SC2aTsTChRIz449k9bqbRCdzCgj4hPZdSCcN1EwhoUH8_CGqM/exec",
+    "googleDrivePdfUrl": ""
+  }
+};
+const STORAGE_KEY = "wrongnote:" + DATA.meta.passageId;
+const PENDING_KEY = "wrongnote:pending:" + DATA.meta.passageId;
+const HIGHLIGHT_KEY = STORAGE_KEY + ":highlights";
+let currentHighlightColor = "yellow";
+let savedHighlightRange = null;
+const $ = (id) => document.getElementById(id);
+function esc(s) { return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c])); }
+function prose(s) { return esc(s).replace(/\r?\n/g, " ").replace(/\s+/g, " ").trim(); }
+function applyUnderline(html) { return String(html ?? "").replace(/([㉠-㉿ⓐ-ⓩ㉮-㉻])([가-힣a-zA-Z0-9·]+)/g, '$1<u>$2</u>'); }
+function applySectionLabels(html) {
+  html = String(html ?? "");
+  html = html.replace(/\[([A-Z])\]/g, '<span class="section-label">[$1]</span>');
+  html = html.replace(/\[([가-힣][가-힣\s\d]*)\]/g, '<span class="concept-label">[$1]</span>');
+  return html;
+}
+function choiceSymbol(n) { return ["①","②","③","④","⑤"][Number(n)-1] || n; }
+function sectionSlug(meta) {
+  const id = String(meta?.passageId || "");
+  return id.startsWith("set_") ? id.split("_").slice(3).join("_") : "";
+}
+function sectionName(meta) {
+  const slug = sectionSlug(meta);
+  return slug ? `${meta.section} [${slug}]` : meta.section;
+}
+function sourceText(value) {
+  const v = String(value ?? "").trim();
+  return v && v !== "확인 필요" ? v : "수능 출제 지문(원전 미표기)";
+}
+function renderMeta() {
+  const m = DATA.meta;
+  $("title").textContent = `${m.examName} | ${m.subject} ${sectionName(m)} (${m.questionRange})`;
+  $("meta").innerHTML = [
+    ["시험일", m.examDate], ["영역", `${m.subject} / ${sectionName(m)}`],
+    ["문항 범위", m.questionRange], ["글/작품", m.sourceTitle],
+    ["출전", sourceText(m.source)]
+  ].map(([k,v]) => `<div><span class="meta-label">${esc(k)}:</span><span class="meta-value">${esc(v)}</span></div>`).join("");
+  $("today").value ||= new Date().toISOString().slice(0,10);
+}
+function renderPassages() {
+  $("passages").innerHTML = DATA.passages.map((p, idx) => `
+    <article class="passage-card">
+      ${p.label ? `<span class="passage-label">${esc(p.label)}</span>` : ""}
+      <div class="passage-title">${esc(p.title)}</div>
+      <div class="passage-source">출전: ${esc(sourceText(p.source || DATA.meta.source))}</div>
+      <div class="passage-box markable" data-highlight-id="passage-${idx}">${p.paragraphs.map(x => {
+        const text = esc(x.text);
+        const sec = DATA.meta.section || "";
+        const isPoetry = sec.includes("시") || sec.includes("가") || sec.includes("수필") || sec.includes("갈래");
+        const processed = isPoetry ? text : text.replace(/\r?\n/g, " ").replace(/\s+/g, " ");
+        return applySectionLabels(applyUnderline(processed));
+      }).join("\n\n")}</div>
+      <div class="passage-reflection">
+        <label>지문 난이도</label>
+        <div class="difficulty-row">
+          ${["쉬움","중간","어려움","매우 어려움"].map(level => `
+            <label><input type="radio" name="passage-difficulty-${idx}" data-passage-difficulty="${idx}" value="${level}"> ${level}</label>
+          `).join("")}
+        </div>
+        <div class="reflection-grid">
+          <div><label>어려웠던 점</label><textarea data-passage-note="${idx}-difficulty"></textarea></div>
+          <div><label>느낀 점</label><textarea data-passage-note="${idx}-feeling"></textarea></div>
+          <div><label>몰랐던 단어</label><textarea data-passage-note="${idx}-vocab"></textarea></div>
+        </div>
+      </div>
+    </article>`).join("");
+}
+function renderQuestions() {
+  $("questions").innerHTML = DATA.questions.map(q => `
+    <article class="question-card" id="q-${q.number}" data-answer="${q.answer}">
+      <div class="question-head"><span class="q-num">${q.number}번</span><span class="q-points">${q.points || 2}점</span><span class="result" id="result-${q.number}"></span></div>
+      <div class="question-body">
+        ${q.needsReview && q.needsReview.includes("diagram") ? `
+          <div class="visual-warning" style="border-left: 4px solid #ea580c; background: #fff7ed; color: #c2410c; padding: 12px; border-radius: 8px;">
+            ※ 이 문항은 그림/도식 확인이 필요합니다.
+            <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
+              <button class="secondary" style="padding: 6px 12px; font-size: 12px; cursor: pointer; border-radius: 6px; background: #ea580c; color: #fff; border: none; font-weight: 800;" onclick="togglePdfView(${q.number})">화면에서 보기 / 접기</button>
+              <a href="${DATA.submissionConfig?.googleDrivePdfUrl || "problem.pdf"}" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #334155; color: #fff; text-decoration: none; font-weight: 800;">새 탭에서 PDF 열기 (모바일 권장)</a>
+            </div>
+            <div id="pdf-view-${q.number}" style="display: none; margin-top: 10px; border: 1px solid #ffedd5; border-radius: 6px; overflow: hidden; height: 500px;">
+              <iframe src="${DATA.submissionConfig?.googleDrivePdfUrl || "problem.pdf"}${q.pdfPage ? '#page=' + q.pdfPage : ''}" width="100%" height="100%" style="border: none;"></iframe>
+            </div>
+          </div>` : ""}
+        <div class="stem markable" data-highlight-id="q-${q.number}-stem">${applySectionLabels(applyUnderline(esc(q.stem)))}</div>
+        ${q.hasView && q.view ? `<div class="view markable" data-highlight-id="q-${q.number}-view">${applySectionLabels(applyUnderline(esc(q.view)))}</div>` : ""}
+        <ul class="choices">
+          ${q.choices.map(c => `<li><label class="choice" data-q="${q.number}" data-choice="${c.number}"><input type="radio" name="q${q.number}" value="${c.number}"><span class="choice-text markable" data-highlight-id="q-${q.number}-choice-${c.number}"><b>${choiceSymbol(c.number)}</b> ${applySectionLabels(applyUnderline(esc(c.text)))}</span></label></li>`).join("")}
+        </ul>
+        <div class="explanation">
+          <div class="exp-main">${prose(q.explanation?.main || "해설 확인 필요")}</div>
+          ${[1,2,3,4,5].map(n => `<div class="exp-choice"><b>${choiceSymbol(n)}</b> ${prose(q.explanation?.choiceExplanations?.[String(n)] || "해설 확인 필요")}</div>`).join("")}
+          <div class="note-grid">
+            ${["선택한 이유","정답 근거","본문 근거","선생님께 질문"].map((label, idx) => `<div><label>${label}</label><textarea data-note="${q.number}-${idx}"></textarea></div>`).join("")}
+          </div>
+        </div>
+      </div>
+    </article>`).join("");
+}
+function collectState() {
+  const answers = {};
+  DATA.questions.forEach(q => { const checked = document.querySelector(`input[name="q${q.number}"]:checked`); answers[q.number] = checked ? Number(checked.value) : null; });
+  const answerKey = {};
+  const judgments = {};
+  let correctCount = 0;
+  let wrongCount = 0;
+  let blankCount = 0;
+  DATA.questions.forEach(q => {
+    const selected = answers[q.number];
+    const correct = Number(q.answer);
+    const isBlank = selected === null || selected === undefined || selected === "";
+    const isCorrect = !isBlank && Number(selected) === correct;
+    answerKey[q.number] = correct;
+    if (isBlank) blankCount++;
+    else if (isCorrect) correctCount++;
+    else wrongCount++;
+    judgments[q.number] = { selected, correct, isCorrect, isBlank };
+  });
+  const notes = {};
+  document.querySelectorAll("[data-note]").forEach(el => notes[el.dataset.note] = el.value);
+  const passageReflections = DATA.passages.map((p, idx) => {
+    const checked = document.querySelector(`input[data-passage-difficulty="${idx}"]:checked`);
+    const entry = {
+      label: p.label || "",
+      title: p.title || "",
+      difficulty: checked ? checked.value : "",
+      notes: {}
+    };
+    document.querySelectorAll(`[data-passage-note^="${idx}-"]`).forEach(el => {
+      entry.notes[el.dataset.passageNote.slice(String(idx).length + 1)] = el.value;
+    });
+    return entry;
+  });
+  const student = {
+    name: $("studentName").value, class: $("studentClass").value,
+    email: $("studentEmail").value, today: $("today").value
+  };
+  const totalPoints = DATA.questions.reduce((s, q) => s + (Number(q.points) || 2), 0);
+  const earnedPoints = DATA.questions.reduce((s, q) => {
+    const j = judgments[q.number];
+    return s + (j && j.isCorrect ? (Number(q.points) || 2) : 0);
+  }, 0);
+  const scoreSummary = {
+    totalCount: DATA.questions.length,
+    correctCount,
+    wrongCount,
+    blankCount,
+    totalPoints,
+    earnedPoints,
+    scoreRate: totalPoints ? Math.round((earnedPoints / totalPoints) * 100) : 0
+  };
+  const storedToken = localStorage.getItem(STORAGE_KEY + ":token") || "";
+  return { meta: DATA.meta, student, answers, answerKey, scoreSummary, judgments, notes, highlights: collectHighlights(), passageReflections, token: storedToken, savedAt: new Date().toISOString() };
+}
+function saveStudentIdentity() {
+  const name = $("studentName").value.trim();
+  const cls  = $("studentClass").value.trim();
+  const email = $("studentEmail").value.trim();
+  if (name || cls || email) {
+    try { localStorage.setItem("student:identity", JSON.stringify({ name, "class": cls, email })); } catch(_) {}
+  }
+}
+function closestMarkable(node) {
+  const el = node && (node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement);
+  return el ? el.closest("[data-highlight-id]") : null;
+}
+function setHighlightColor(color) {
+  currentHighlightColor = color || "yellow";
+  document.querySelectorAll(".swatch").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.color === currentHighlightColor);
+  });
+}
+document.addEventListener("click", function(e) {
+  if (e.target.matches(".swatch")) setHighlightColor(e.target.dataset.color);
+  if (e.target.matches("[data-quick-color]")) {
+    e.preventDefault();
+    setHighlightColor(e.target.dataset.quickColor);
+    applyHighlight(savedHighlightRange);
+    hideFloatingHighlight();
+  }
+});
+function rememberSelection() {
+  const sel = window.getSelection();
+  if (!sel || sel.rangeCount === 0 || sel.isCollapsed) return;
+  const range = sel.getRangeAt(0);
+  const box = closestMarkable(range.commonAncestorContainer);
+  if (!box || !box.contains(range.startContainer) || !box.contains(range.endContainer)) return;
+  savedHighlightRange = range.cloneRange();
+  showFloatingHighlight(range);
+}
+function showFloatingHighlight(range) {
+  const tool = $("floatingHighlight");
+  if (!tool) return;
+  const rect = range.getBoundingClientRect();
+  if (!rect || (!rect.width && !rect.height)) return;
+  tool.style.left = Math.max(8, Math.min(window.innerWidth - 180, rect.left + rect.width / 2 - 76)) + "px";
+  tool.style.top = Math.max(8, rect.top - 46) + "px";
+  tool.classList.add("visible");
+}
+function hideFloatingHighlight() {
+  const tool = $("floatingHighlight");
+  if (tool) tool.classList.remove("visible");
+}
+document.addEventListener("selectionchange", function() {
+  setTimeout(rememberSelection, 80);
+});
+document.addEventListener("touchend", function() {
+  setTimeout(rememberSelection, 180);
+});
+function applyHighlight(rangeOverride) {
+  const sel = window.getSelection();
+  const range = rangeOverride || (sel && sel.rangeCount ? sel.getRangeAt(0) : savedHighlightRange);
+  if (!range || range.collapsed) return;
+  const box = closestMarkable(range.commonAncestorContainer);
+  if (!box || !box.contains(range.startContainer) || !box.contains(range.endContainer)) {
+    alert("한 문단이나 한 선택지 안에서만 표시할 수 있습니다.");
+    return;
+  }
+  const mark = document.createElement("mark");
+  mark.className = "student-highlight";
+  mark.dataset.highlightColor = currentHighlightColor;
+  try {
+    mark.appendChild(range.extractContents());
+    range.insertNode(mark);
+    if (sel) sel.removeAllRanges();
+    savedHighlightRange = null;
+    saveHighlights();
+  } catch (err) {
+    alert("선택한 범위는 표시하기 어렵습니다. 조금 더 짧게 선택해 주세요.");
+  }
+}
+function unwrapMark(mark) {
+  const parent = mark.parentNode;
+  while (mark.firstChild) parent.insertBefore(mark.firstChild, mark);
+  parent.removeChild(mark);
+  parent.normalize();
+}
+function removeHighlightAtSelection() {
+  const sel = window.getSelection();
+  if (!sel || sel.rangeCount === 0) return;
+  const el = sel.anchorNode && (sel.anchorNode.nodeType === Node.ELEMENT_NODE ? sel.anchorNode : sel.anchorNode.parentElement);
+  const mark = el ? el.closest("mark.student-highlight") : null;
+  if (mark) {
+    unwrapMark(mark);
+    saveHighlights();
+  }
+}
+function clearAllHighlights() {
+  if (!confirm("모든 형광펜 표시를 지울까요?")) return;
+  document.querySelectorAll("mark.student-highlight").forEach(unwrapMark);
+  saveHighlights();
+}
+function collectHighlights() {
+  const highlights = {};
+  document.querySelectorAll("[data-highlight-id]").forEach(el => {
+    if (el.querySelector("mark.student-highlight")) highlights[el.dataset.highlightId] = el.innerHTML;
+  });
+  return highlights;
+}
+function saveHighlights() {
+  localStorage.setItem(HIGHLIGHT_KEY, JSON.stringify(collectHighlights()));
+}
+function applyStoredHighlights(highlights) {
+  const saved = highlights || JSON.parse(localStorage.getItem(HIGHLIGHT_KEY) || "{}");
+  Object.entries(saved).forEach(([id, html]) => {
+    const el = document.querySelector(`[data-highlight-id="${CSS.escape(id)}"]`);
+    if (el && typeof html === "string") el.innerHTML = html;
+  });
+}
+function saveToLocal() { localStorage.setItem(STORAGE_KEY, JSON.stringify(collectState())); saveStudentIdentity(); alert("저장했습니다."); }
+function loadFromLocal() {
+  const raw = localStorage.getItem(STORAGE_KEY); if (!raw) return;
+  const s = JSON.parse(raw);
+  $("studentName").value = s.student?.name || ""; $("studentClass").value = s.student?.class || "";
+  $("studentEmail").value = s.student?.email || ""; $("today").value = s.student?.today || "";
+  Object.entries(s.answers || {}).forEach(([q,v]) => { const el = document.querySelector(`input[name="q${q}"][value="${v}"]`); if (el) el.checked = true; });
+  Object.entries(s.notes || {}).forEach(([k,v]) => { const el = document.querySelector(`[data-note="${k}"]`); if (el) el.value = v; });
+  (s.passageReflections || []).forEach((entry, idx) => {
+    if (entry.difficulty) {
+      const el = document.querySelector(`input[data-passage-difficulty="${idx}"][value="${entry.difficulty}"]`);
+      if (el) el.checked = true;
+    }
+    Object.entries(entry.notes || {}).forEach(([k,v]) => {
+      const el = document.querySelector(`[data-passage-note="${idx}-${k}"]`);
+      if (el) el.value = v;
+    });
+  });
+  applyStoredHighlights(s.highlights || null);
+}
+function gradeExam() {
+  let correct = 0, earned = 0, total = 0;
+  DATA.questions.forEach(q => {
+    const pts = Number(q.points) || 2;
+    total += pts;
+    const card = $(`q-${q.number}`); card.classList.add("graded");
+    const checked = document.querySelector(`input[name="q${q.number}"]:checked`);
+    const selected = checked ? Number(checked.value) : null;
+    const isCorrect = selected === Number(q.answer);
+    if (isCorrect) { correct++; earned += pts; }
+    card.querySelectorAll(".choice").forEach(label => {
+      const n = Number(label.dataset.choice);
+      label.classList.toggle("correct", n === Number(q.answer));
+      label.classList.toggle("wrong", selected === n && selected !== Number(q.answer));
+    });
+    $(`result-${q.number}`).textContent = isCorrect ? "정답" : `오답 (정답 ${choiceSymbol(q.answer)})`;
+  });
+  $("scorePanel").classList.add("visible");
+  $("scoreNum").textContent = `${earned}점 / ${total}점`;
+  $("scoreDetail").textContent = `정답 ${correct}개, 오답 ${DATA.questions.length - correct}개`;
+  $("submitArea").classList.add("visible");
+  saveToLocal();
+}
+function resetExam() { if (confirm("입력 내용을 초기화할까요?")) { localStorage.removeItem(STORAGE_KEY); localStorage.removeItem(HIGHLIGHT_KEY); location.reload(); } }
+function downloadWrongnote() {
+  const blob = new Blob([JSON.stringify(collectState(), null, 2)], { type: "application/json;charset=utf-8" });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `${DATA.meta.passageId}_wrongnote.json`; a.click(); URL.revokeObjectURL(a.href);
+}
+function loadPendingQueue() {
+  try { return JSON.parse(localStorage.getItem(PENDING_KEY) || "[]"); } catch(_) { return []; }
+}
+function savePendingQueue(queue) {
+  localStorage.setItem(PENDING_KEY, JSON.stringify(queue.slice(-5)));
+}
+function queueSubmission(payload, reason) {
+  const queue = loadPendingQueue();
+  queue.push({ payload, reason: String(reason || ""), queuedAt: new Date().toISOString() });
+  savePendingQueue(queue);
+}
+function postSubmission(payload) {
+  const url = DATA.submissionConfig?.googleScriptUrl;
+  return fetch(url, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload) })
+    .then(res => res.json());
+}
+function retryPendingSubmissions(silent=true) {
+  const url = DATA.submissionConfig?.googleScriptUrl;
+  if (!url || url.includes("여기에_")) return Promise.resolve();
+  const queue = loadPendingQueue();
+  if (!queue.length) return Promise.resolve();
+  const remaining = [];
+  let chain = Promise.resolve();
+  queue.forEach(item => {
+    chain = chain.then(() => postSubmission(item.payload).then(res => {
+      if (!res.ok) remaining.push(item);
+    }).catch(() => remaining.push(item)));
+  });
+  return chain.then(() => {
+    savePendingQueue(remaining);
+    if (!silent && !remaining.length) $("submitStatus").textContent = "보관 중이던 제출까지 모두 전송했습니다.";
+  });
+}
+function submitToTeacher() {
+  const url = DATA.submissionConfig?.googleScriptUrl;
+  if (!url || url.includes("여기에_")) { $("submitStatus").textContent = "제출 URL이 설정되지 않았습니다."; return; }
+  const name = $("studentName").value.trim();
+  if (!name) { $("submitStatus").textContent = "이름을 먼저 입력해 주세요."; return; }
+  saveStudentIdentity();
+  $("submitStatus").textContent = "전송 중...";
+  
+  const linkBox = $("teacherLinkBox");
+  if (linkBox) linkBox.innerHTML = "";
+
+  const payload = collectState();
+  postSubmission(payload)
+    .then(res => {
+      if (res.ok) { 
+        $("submitStatus").textContent = "✅ 선생님께 성공적으로 제출되었습니다!"; 
+        retryPendingSubmissions(true);
+        if (res.token) {
+          localStorage.setItem(STORAGE_KEY + ":token", res.token);
+        }
+        if (res.studentFeedbackUrl) {
+          if (linkBox) {
+            linkBox.innerHTML = `<a href="${res.studentFeedbackUrl}" target="_blank" style="display:inline-block; margin-top:10px; padding:8px 16px; background-color:#11645d; color:#fff; text-decoration:none; border-radius:4px; font-weight:700;">내 피드백 확인 페이지 열기</a>`;
+          }
+        }
+      }
+      else { $("submitStatus").textContent = "❌ 제출 실패: " + (res.message || "알 수 없는 오류"); }
+    })
+    .catch(err => {
+      queueSubmission(payload, err.message);
+      $("submitStatus").textContent = "⚠️ 전송에 실패해 이 브라우저에 임시 보관했습니다. 인터넷 연결 후 다시 제출하면 자동으로 함께 전송됩니다. JSON 다운로드도 백업으로 보관하세요. (" + err.message + ")";
+    });
+}
+function togglePdfView(qNum) {
+  const el = document.getElementById("pdf-view-" + qNum);
+  if (el) {
+    el.style.display = el.style.display === "none" ? "block" : "none";
+  }
+}
+function init() {
+  renderMeta(); renderPassages(); renderQuestions(); loadFromLocal(); applyStoredHighlights();
+  try {
+    const id = JSON.parse(localStorage.getItem("student:identity") || "null");
+    if (id) {
+      if (!$("studentName").value)  $("studentName").value  = id.name  || "";
+      if (!$("studentClass").value) $("studentClass").value = id["class"] || "";
+      if (!$("studentEmail").value) $("studentEmail").value = id.email || "";
+    }
+  } catch(_) {}
+  retryPendingSubmissions(true);
+}
+init();
+</script>
+</body>
+</html>

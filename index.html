@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026학년도 5월 고3 모의고사 오답풀이</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root {
+    --ink: #172033;
+    --muted: #647084;
+    --line: #dbe3ed;
+    --paper: #ffffff;
+    --surface: #f7f9fc;
+    --brand: #11645d;
+    --brand-2: #0e8a7f;
+    --amber: #b75d18;
+    --shadow-sm: 0 1px 2px rgba(23,32,51,0.06), 0 1px 8px rgba(23,32,51,0.04);
+    --shadow-md: 0 18px 45px rgba(23,32,51,0.10);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Noto Sans KR", sans-serif;
+    color: var(--ink);
+    background: radial-gradient(circle at top left, rgba(17,100,93,0.10), transparent 32rem),
+                linear-gradient(180deg, #f4f7fa 0%, #e9eef4 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding: 32px 16px 60px;
+  }
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* 헤더 */
+  .header {
+    background: linear-gradient(135deg, #102c3d 0%, #11645d 62%, #b75d18 160%);
+    border-radius: 16px;
+    padding: 32px 36px;
+    color: #fff;
+    margin-bottom: 28px;
+    box-shadow: 0 18px 36px rgba(16,44,61,0.18);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: "";
+    position: absolute;
+    inset: auto -80px -110px auto;
+    width: 300px; height: 300px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 999px;
+    pointer-events: none;
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.28);
+    border-radius: 999px;
+    padding: 4px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #c8f3ec;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 850;
+    line-height: 1.35;
+    color: #fff;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .header p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.78);
+    position: relative;
+  }
+
+  /* 안내 박스 */
+  .guide {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+  }
+  .guide strong { color: var(--ink); }
+
+  /* 섹션 제목 */
+  .section-title {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    padding-left: 4px;
+  }
+
+  /* 카드 그리드 */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+  .card {
+    display: block;
+    text-decoration: none;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px 22px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: #b8cfe0;
+  }
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    border-radius: 14px 0 0 14px;
+  }
+  .card.inmun::before   { background: #275f9f; }
+  .card.science::before { background: #15803d; }
+  .card.social::before  { background: #7c3aed; }
+  .card.novel::before   { background: #b75d18; }
+  .card.poetry::before  { background: #dc2626; }
+  .card.classic-p::before { background: #0e6b8f; }
+  .card.classic-n::before { background: #5b21b6; }
+
+  .card-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    border-radius: 6px;
+    padding: 2px 8px;
+    margin-bottom: 10px;
+  }
+  .card.inmun   .card-tag { background: #eff6ff; color: #275f9f; }
+  .card.science .card-tag { background: #f0fdf4; color: #15803d; }
+  .card.social  .card-tag { background: #f5f3ff; color: #7c3aed; }
+  .card.novel   .card-tag { background: #fff7ed; color: #b75d18; }
+  .card.poetry  .card-tag { background: #fef2f2; color: #dc2626; }
+  .card.classic-p .card-tag { background: #e0f2fe; color: #0e6b8f; }
+  .card.classic-n .card-tag { background: #ede9fe; color: #5b21b6; }
+
+  .card-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .card-range {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .card-arrow {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #c8d5e4;
+    transition: color 0.15s, transform 0.15s;
+  }
+  .card:hover .card-arrow {
+    color: var(--brand);
+    transform: translateY(-50%) translateX(3px);
+  }
+
+  /* 푸터 */
+  footer {
+    text-align: center;
+    font-size: 12px;
+    color: #a0aec0;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-badge">📝 오답풀이 자료</div>
+    <h1>2026학년도 5월 고3<br>전국연합학력평가</h1>
+    <p>국어 영역 · 지문별 오답풀이 모음</p>
+  </div>
+
+  <div class="guide">
+    <strong>사용 방법</strong> — 아래 카드를 클릭하면 해당 지문의 오답풀이 페이지로 이동합니다.<br>
+    각 페이지에서 문제·선택지·해설을 확인하고, 하이라이트 기능으로 핵심 구절을 표시할 수 있어요.
+  </div>
+
+  <div class="section-title">📖 독서 지문</div>
+  <div class="grid">
+
+    <a class="card inmun" href="reading_04_09_inmun.html">
+      <div class="card-tag">인문</div>
+      <div class="card-title">인문 지문</div>
+      <div class="card-range">문항 4 – 9번</div>
+      <span class="card-arrow">›</span>
+    </a>
+
+    <a class="card science" href="reading_10_13_science.html">
+      <div class="card-tag">과학</div>
+      <div class="card-title">과학 지문</div>
+      <div class="card-range">문항 10 – 13번</div>
+      <span class="card-arrow">›</span>
+    </a>
+
+    <a class="card social" href="reading_14_17_social.html">
+      <div class="card-tag">사회</div>
+      <div class="card-title">사회 지문</div>
+      <div class="card-range">문항 14 – 17번</div>
+      <span class="card-arrow">›</span>
+    </a>
+
+  </div>
+
+  <div class="section-title">📚 문학 지문</div>
+  <div class="grid">
+
+    <a class="card novel" href="reading_18_21_modern_novel.html">
+      <div class="card-tag">현대 소설</div>
+      <div class="card-title">현대 소설</div>
+      <div class="card-range">문항 18 – 21번</div>
+      <span class="card-arrow">›</span>
+    </a>
+
+    <a class="card poetry" href="reading_22_26_poetry_essay.html">
+      <div class="card-tag">현대시·수필</div>
+      <div class="card-title">현대시 · 수필</div>
+      <div class="card-range">문항 22 – 26번</div>
+      <span class="card-arrow">›</span>
+    </a>
+
+    <a class="card classic-p" href="reading_27_30_classic_poetry.html">
+      <div class="card-tag">고전 시가</div>
+      <div class="card-title">고전 시가</div>
+      <div class="card-range">문항 27 – 30번</div>
+      <span class="card-arrow">›</span>
+    </a>
+
+    <a class="card classic-n" href="reading_31_34_classic_novel.html">
+      <div class="card-tag">고전 소설</div>
+      <div class="card-title">고전 소설</div>
+      <div class="card-range">문항 31 – 34번</div>
+      <span class="card-arrow">›</span>
+    </a>
+
+  </div>
+
+  <footer>2026학년도 5월 고3 전국연합학력평가 오답풀이 · GitHub Pages</footer>
+</div>
+</body>
+</html>

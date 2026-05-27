@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026학년도 5월 고3 전국연합학력평가 - 인문 [inmun] 4~9</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root {
+    --ink: #172033;
+    --muted: #647084;
+    --line: #dbe3ed;
+    --soft-line: #edf2f7;
+    --paper: #ffffff;
+    --surface: #f7f9fc;
+    --surface-strong: #eef4f8;
+    --brand: #11645d;
+    --brand-2: #0e8a7f;
+    --blue: #275f9f;
+    --amber: #b75d18;
+    --danger: #dc2626;
+    --success: #15803d;
+    --shadow-sm: 0 1px 2px rgba(23, 32, 51, 0.06), 0 1px 8px rgba(23, 32, 51, 0.04);
+    --shadow-md: 0 18px 45px rgba(23, 32, 51, 0.10);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; color: var(--ink); background: radial-gradient(circle at top left, rgba(17,100,93,0.10), transparent 32rem), linear-gradient(180deg, #f4f7fa 0%, #e9eef4 100%); background-attachment: fixed; min-height: 100vh; }
+  .container { max-width: 1240px; margin: 28px auto; padding: 26px; background: rgba(255,255,255,0.92); min-height: 95vh; border: 1px solid rgba(219,227,237,0.95); border-radius: 16px; box-shadow: var(--shadow-md); }
+  .exam-header { position: relative; overflow: hidden; background: linear-gradient(135deg, #102c3d 0%, #11645d 62%, #b75d18 160%); padding: 26px 28px; border-radius: 12px; margin-bottom: 18px; box-shadow: 0 18px 36px rgba(16, 44, 61, 0.18); color: #fff; }
+  .exam-header:after { content: ""; position: absolute; inset: auto -80px -110px auto; width: 300px; height: 300px; background: rgba(255,255,255,0.08); border-radius: 999px; pointer-events: none; }
+  .exam-header h1 { position: relative; margin: 0 0 16px; max-width: 880px; font-size: 24px; line-height: 1.35; color: #fff; font-weight: 850; letter-spacing: 0; word-break: keep-all; }
+  .student-guide { position: relative; margin: 0 0 16px; border: 1px solid rgba(255,255,255,0.20); padding: 13px 15px; color: #eefbf8; background: rgba(255,255,255,0.10); border-radius: 10px; font-size: 13px; line-height: 1.72; word-break: keep-all; backdrop-filter: blur(8px); }
+  .student-guide b { color: #fff; font-weight: 850; }
+  .student-guide ul { margin: 6px 0 0 0; padding-left: 18px; }
+  .student-guide li { margin: 2px 0; }
+  .meta-grid { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; font-size: 12.5px; }
+  .meta-grid > div { min-height: 44px; padding: 9px 10px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.16); border-radius: 9px; }
+  .meta-label { display: block; font-weight: 800; color: #c8f3ec; margin: 0 0 3px; }
+  .meta-value { word-break: keep-all; color: #fff; line-height: 1.35; }
+  .student-info { border: 1px solid var(--line); padding: 18px; border-radius: 12px; background: var(--paper); margin-bottom: 14px; box-shadow: var(--shadow-sm); }
+  .student-info h2 { margin: 0 0 12px; font-size: 15px; color: var(--ink); font-weight: 850; }
+  .info-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  label { font-weight: 780; font-size: 13px; color: #405168; display: block; margin-bottom: 5px; }
+  input[type="text"], textarea { width: 100%; border: 1px solid #cfd9e5; border-radius: 8px; padding: 9px 11px; font-family: inherit; font-size: 13.5px; transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease; color: var(--ink); background: #fff; }
+  input[type="text"]:focus, textarea:focus { border-color: var(--brand-2); outline: none; box-shadow: 0 0 0 4px rgba(14, 138, 127, 0.14); }
+  textarea { min-height: 64px; resize: vertical; line-height: 1.65; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 22px; padding: 10px; border: 1px solid var(--line); border-radius: 12px; background: rgba(247,249,252,0.92); box-shadow: var(--shadow-sm); }
+  .highlight-toolbar { position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 12px; background: #fff; box-shadow: var(--shadow-sm); padding: 9px; margin: -4px 0 16px; }
+  .highlight-toolbar button { padding: 7px 10px; }
+  .swatch { width: 28px; height: 28px; border-radius: 999px; border: 2px solid #cbd5e1; cursor: pointer; padding: 0; }
+  .swatch.active { border-color: #0f172a; box-shadow: 0 0 0 2px #e2e8f0; }
+  .floating-highlight { position: fixed; z-index: 1000; display: none; gap: 6px; align-items: center; border: 1px solid #cbd5e1; border-radius: 999px; background: #fff; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.18); padding: 6px; }
+  .floating-highlight.visible { display: flex; }
+  .mini-swatch { width: 24px; height: 24px; border-radius: 999px; border: 1px solid #94a3b8; padding: 0; }
+  mark.student-highlight { border-radius: 3px; padding: 0 2px; }
+  mark[data-highlight-color="yellow"] { background: #fde68a; }
+  mark[data-highlight-color="green"] { background: #bbf7d0; }
+  mark[data-highlight-color="blue"] { background: #bfdbfe; }
+  mark[data-highlight-color="pink"] { background: #fbcfe8; }
+  .bottom-toolbar { margin: 26px 0 2px; padding-top: 10px; border-top: 1px solid var(--line); }
+  button { border: 1px solid transparent; border-radius: 8px; padding: 10px 16px; min-height: 40px; font-family: inherit; font-weight: 800; cursor: pointer; transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease, border-color 0.16s ease; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(23,32,51,0.08); }
+  button:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(23,32,51,0.14); }
+  button:active { transform: translateY(0); box-shadow: 0 1px 2px rgba(23,32,51,0.10); }
+  .primary { background: var(--brand); color: #fff; }
+  .primary:hover { background: var(--brand-2); }
+  .secondary { background: #ffffff; color: #334155; border-color: #cfd9e5; }
+  .secondary:hover { background: #f3f6f9; border-color: #b8c5d3; }
+  .accent { background: var(--amber); color: #fff; }
+  .accent:hover { background: #a64f12; }
+  .score-panel { display: none; border: 1px solid rgba(17,100,93,0.30); background: linear-gradient(180deg, #f0fdfa 0%, #ffffff 100%); border-radius: 12px; padding: 18px; text-align: center; margin-bottom: 20px; box-shadow: var(--shadow-sm); }
+  .score-panel.visible { display: block; }
+  .score-num { font-size: 38px; font-weight: 850; color: var(--brand); }
+  .content-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(400px, 0.92fr); gap: 24px; align-items: start; }
+  .content-grid > section { min-width: 0; }
+  .panel-title { display: flex; align-items: center; gap: 9px; margin: 0 0 14px; color: var(--ink); font-size: 18px; font-weight: 850; letter-spacing: 0; }
+  .panel-title:before { content: ""; width: 7px; height: 22px; border-radius: 99px; background: var(--brand); }
+  .passage-card { margin-bottom: 22px; }
+  .passage-label { display: inline-flex; align-items: center; background: #e9f6f3; color: var(--brand); border: 1px solid #bfe3dc; padding: 4px 10px; border-radius: 999px; font-weight: 850; font-size: 12px; }
+  .passage-title { margin-top: 10px; font-weight: 850; color: var(--ink); font-size: 17px; line-height: 1.45; word-break: keep-all; }
+  .passage-source { margin: 6px 0 10px; color: var(--muted); font-size: 12.5px; }
+  .passage-box { border: 1px solid var(--line); border-radius: 12px; padding: 20px 21px; line-height: 1.95; white-space: pre-wrap; word-break: keep-all; text-align: justify; text-justify: inter-word; background: #fff; box-shadow: var(--shadow-sm); font-size: 15px; }
+  .passage-reflection { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); padding: 14px; margin-top: 12px; }
+  .difficulty-row { display: flex; flex-wrap: wrap; gap: 8px 12px; margin: 8px 0 12px; }
+  .difficulty-row label { display: inline-flex; gap: 5px; align-items: center; font-weight: 700; cursor: pointer; margin: 0; padding: 6px 10px; border: 1px solid #d6e0eb; border-radius: 999px; background: #fff; }
+  .reflection-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .reflection-grid textarea { min-height: 74px; }
+  .section-label { display: inline-block; background: #eaf2fb; color: var(--blue); border: 1px solid #c7d9ed; padding: 2px 8px; border-radius: 999px; font-weight: 850; font-size: 11px; margin: 0 3px; vertical-align: middle; }
+  .concept-label { display: block; font-weight: 800; color: var(--brand); font-size: 11px; background: #f0fdf9; border-left: 3px solid var(--brand); padding: 2px 8px; margin: 0 0 5px -2px; border-radius: 0 3px 3px 0; }
+  .question-card { border: 1px solid var(--line); border-radius: 12px; margin-bottom: 18px; overflow: hidden; background: #fff; box-shadow: var(--shadow-sm); }
+  .question-head { background: linear-gradient(135deg, #17324a 0%, #11645d 100%); color: #fff; padding: 12px 15px; display: flex; gap: 10px; align-items: center; }
+  .q-num { font-size: 16px; font-weight: 850; }
+  .q-points { font-size: 11px; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.22); padding: 2px 8px; border-radius: 999px; font-weight: 800; }
+  .question-body { padding: 17px; }
+  .stem { font-weight: 800; line-height: 1.78; white-space: pre-wrap; word-break: keep-all; margin-bottom: 12px; text-align: justify; text-justify: inter-word; font-size: 15px; }
+  .view { border: 1px solid #d7d1c7; background: #fcfaf5; border-radius: 10px; padding: 14px; margin-bottom: 12px; white-space: normal; line-height: 1.8; word-break: keep-all; font-size: 14px; }
+  .view:before { content: "<보기>"; display: block; font-weight: 850; color: #6b5e4c; margin-bottom: 6px; }
+  .visual-warning { border-left: 4px solid var(--amber); background: #fff7ed; color: #9a3412; padding: 11px 14px; margin-bottom: 12px; font-weight: 800; border-radius: 0 9px 9px 0; }
+  .choices { list-style: none; padding: 0; margin: 0; }
+  .choice { display: flex; gap: 10px; align-items: flex-start; border: 1px solid transparent; border-radius: 9px; padding: 8px 9px; margin-bottom: 6px; cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease, padding 0.18s ease; }
+  .choice:hover { background: #f0fdfa; border-color: #9fd8d0; padding-left: 12px; }
+  .choice.correct { background: #dcfce7; border-color: #22c55e; }
+  .choice.wrong { background: #fee2e2; border-color: #ef4444; }
+  .choice-text { white-space: pre-wrap; line-height: 1.7; word-break: keep-all; text-align: justify; text-justify: inter-word; font-size: 14px; }
+  .explanation { display: none; border-top: 1px dashed #cbd5e1; margin-top: 14px; padding-top: 14px; }
+  .graded .explanation { display: block; }
+  .exp-main { background: #fff8e8; border-left: 4px solid #d88a1f; padding: 13px; border-radius: 0 9px 9px 0; white-space: normal; line-height: 1.82; word-break: keep-all; text-align: justify; text-justify: inter-word; font-size: 13.8px; margin-bottom: 10px; }
+  .exp-choice { background: var(--surface); border-radius: 9px; padding: 9px 12px; margin-top: 8px; white-space: normal; line-height: 1.72; word-break: keep-all; text-align: justify; text-justify: inter-word; font-size: 13.2px; border: 1px solid var(--soft-line); }
+  .note-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+  .submit-area { display: none; margin-top: 18px; }
+  .submit-area.visible { display: block; }
+  .status { margin-top: 12px; font-weight: 800; font-size: 14px; }
+  @media (max-width: 1020px) { .content-grid { grid-template-columns: 1fr; } .meta-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 900px) { .info-grid, .note-grid, .reflection-grid { grid-template-columns: 1fr; } .container { padding: 14px; margin: 0; border-radius: 0; } .exam-header { padding: 20px; border-radius: 10px; } .exam-header h1 { font-size: 21px; } .toolbar button { flex: 1 1 130px; } }
+  @media print { body { background: #fff; } .toolbar, .highlight-toolbar, .submit-area { display: none !important; } .container { max-width: none; box-shadow: none; padding: 0; } .content-grid { display: block; } .explanation { display: block !important; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="exam-header">
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+      <img src="school_logo.png" alt="창원경일고등학교 로고" style="height: 40px; width: 40px; border-radius: 6px; object-fit: cover; border: 1px solid rgba(255,255,255,0.2);">
+      <span style="font-size: 19px; font-weight: 900; color: #4ade80; letter-spacing: -0.5px;">창원경일고등학교</span>
+    </div>
+    <h1 id="title"></h1>
+    <div class="student-guide">
+      <b>작성 방법</b>
+      <ul>
+        <li>이름, 학번, 이메일 주소를 먼저 입력하세요.</li>
+        <li>문제를 풀고 답을 모두 선택한 뒤 <b>채점하기</b>를 누르세요.</li>
+        <li>틀린 문제를 중심으로 오답노트를 작성하세요. 맞힌 문제는 꼭 쓰지 않아도 됩니다.</li>
+        <li>본문 근거는 “시작 어절~끝 어절”로 적거나, “몇째 줄”처럼 찾을 수 있게 적어도 됩니다.</li>
+        <li>작성한 뒤 <b>선생님께 제출</b>을 눌러 제출하세요.</li>
+      </ul>
+    </div>
+    <div class="meta-grid" id="meta"></div>
+  </header>
+  <section class="student-info">
+    <h2>학생 정보</h2>
+    <div class="info-grid">
+      <div><label>이름</label><input type="text" id="studentName"></div>
+      <div><label>학번</label><input type="text" id="studentClass"></div>
+      <div><label>이메일</label><input type="text" id="studentEmail"></div>
+      <div><label>날짜</label><input type="text" id="today"></div>
+    </div>
+  </section>
+  <div class="toolbar">
+    <button class="primary" onclick="gradeExam()">채점하기</button>
+    <button class="secondary" onclick="saveToLocal()">저장</button>
+    <button class="secondary" onclick="loadFromLocal()">불러오기</button>
+    <button class="accent" onclick="downloadWrongnote()">JSON 다운로드</button>
+    <button class="secondary" onclick="window.print()">인쇄</button>
+    <button class="secondary" onclick="resetExam()">초기화</button>
+  </div>
+  <div class="highlight-toolbar" aria-label="highlight tools">
+    <button class="swatch active" data-color="yellow" style="background:#fde68a" title="노랑"></button>
+    <button class="swatch" data-color="green" style="background:#bbf7d0" title="초록"></button>
+    <button class="swatch" data-color="blue" style="background:#bfdbfe" title="파랑"></button>
+    <button class="swatch" data-color="pink" style="background:#fbcfe8" title="분홍"></button>
+    <button class="secondary" onclick="applyHighlight()">형광펜</button>
+    <button class="secondary" onclick="removeHighlightAtSelection()">지우기</button>
+    <button class="secondary" onclick="clearAllHighlights()">전체 지우기</button>
+  </div>
+  <div class="floating-highlight" id="floatingHighlight" aria-label="quick highlight">
+    <button class="mini-swatch" data-quick-color="yellow" style="background:#fde68a" title="노랑"></button>
+    <button class="mini-swatch" data-quick-color="green" style="background:#bbf7d0" title="초록"></button>
+    <button class="mini-swatch" data-quick-color="blue" style="background:#bfdbfe" title="파랑"></button>
+    <button class="mini-swatch" data-quick-color="pink" style="background:#fbcfe8" title="분홍"></button>
+  </div>
+  <section class="score-panel" id="scorePanel">
+    <div>채점 결과</div>
+    <div class="score-num" id="scoreNum">0점</div>
+    <div id="scoreDetail"></div>
+  </section>
+  <main class="content-grid">
+    <section>
+      <h2 class="panel-title">지문</h2>
+      <div id="passages"></div>
+    </section>
+    <section>
+      <h2 class="panel-title">문항</h2>
+      <div id="questions"></div>
+      <div class="submit-area" id="submitArea">
+        <button class="primary" onclick="submitToTeacher()">선생님께 제출</button>
+        <div class="status" id="submitStatus"></div>
+        <div id="teacherLinkBox" style="margin-top:10px;"></div>
+      </div>
+    </section>
+  </main>
+  <div class="toolbar bottom-toolbar">
+    <button class="primary" onclick="gradeExam()">채점하기</button>
+    <button class="secondary" onclick="saveToLocal()">저장</button>
+    <button class="secondary" onclick="loadFromLocal()">불러오기</button>
+    <button class="accent" onclick="downloadWrongnote()">JSON 다운로드</button>
+    <button class="secondary" onclick="window.print()">인쇄</button>
+    <button class="secondary" onclick="resetExam()">초기화</button>
+  </div>
+</div>
+<script>
+const DATA = {
+  "schemaVersion": "1.0.0",
+  "meta": {
+    "examName": "2026학년도 5월 고3 전국연합학력평가",
+    "examDate": "2026학년도 5월",
+    "subject": "국어",
+    "section": "인문",
+    "questionRange": "4~9",
+    "sourceTitle": "러셀의 지식론과 리오타르의 언어 게임론",
+    "source": "확인 필요",
+    "passageId": "set_04_09_inmun",
+    "originalPassageLength": 2077,
+    "jsonPassageLength": 2071
+  },
+  "passages": [
+    {
+      "label": "(가)",
+      "title": "러셀의 명제·지식론",
+      "source": "확인 필요",
+      "paragraphs": [
+        {
+          "paragraphNumber": 1,
+          "text": "러셀은 세계를 객관적 실재로 이해했다. 러셀에 따르면 명제는\n세계에 존재하는 사실을 문장이라는 형식으로 드러내는 언어적\n표현이다. 러셀은 명제가 그 사실을 올바르게 기술하고 있는지를\n논리적으로 분석하여 참과 거짓을 결정할 수 있다고 보았는데,\n명제가 세계와 대응되면 그 명제는 참이며 명제가 세계와 대응\n하지 않으면 거짓이라고 하였다. 러셀은 과학이나 윤리 등 서로\n다른 영역도, 명제로 표현된 것과 세계와의 대응 여부로 참과 거\n짓을 결정한다는 점에서 공통의 평가 방식을 지닌다고 보았다.\n러셀은 명제를 분석해 세계와의 대응 관계를 살펴봄으로써 진\n리에 대한 지식을 얻을 수 있다고 보았다. 진리에 대한 지식이란\n세계와의 대응 여부에 대해 판단하여 명제가 참임을 ⓐ아는 것\n을 의미한다. 명제에 있는 여러 사실들의 관계를 세계의 사실 관\n계와 일치하게 판단한 경우 그 판단은 참이다. 러셀은 세계에\n대한 앎인 ㉠지식을 진리에 대한 지식과 사물에 대한 지식으로\n나누었는데, 이때 진리에 대한 지식은 사물에 대한 지식이 바탕\n이 된다.\n사물에 대한 지식은 세계에 그 대상이 있다는 것을 아는 것을\n의미한다. 러셀은 사물에 대한 지식을 다시 직접적 인식에 의한\n지식과, 기술에 의한 지식으로 구분한다. 이때 직접적 인식에 의\n한 지식은 대상을 직접적으로 대면함으로써 우리의 감각에 주어\n지는 감각 자료에 대한 지식이 대표적인데, ‘장미’와 같은 구체적\n으로 존재하는 대상은 물론, ‘붉음’ 같은 속성이나 ‘다양성’ 같은\n관념 등도 직접적 인식의 대상이 된다. 러셀은 직접적 인식에 의\n한 지식을 실제 경험을 통해 지각한다는 점에서 가장 확실하고\n기초적인 지식으로 ⓑ보았다. 러셀은 명제를 분석함으로써 세계\n에 대한 모든 지식을 가장 확실한, 직접적 인식에 의한 지식으로\n환원하고자 하였다.\n기술에 의한 지식은 대상을 직접적으로 대면하지 않았더라도\n기술에 의해 대상을 간접적으로 인식하는 것을 일컫는다. 이때\n기술은 어떤 존재하는 대상을 직접적으로 가리키는 말이 아니라\n그것에 대해 서술하는 말이다. 기술에 의한 지식은 그 기술에 부\n합하는 대상의 존재를, 우리가 직접적으로 인식한 것에서부터 추\n론해 아는 것이라는 점에서 직접적 인식에 기반하며, 우리의 지\n식이 개인적 경험의 한계를 ⓒ넘을 수 있게 한다. 또한 기술에\n의한 지식은 직접적 인식에 의한 지식과 달리 대상을 직접적으\n로 대면하지 않은 사람에게도 전달될 수 있다.\n러셀은 지시 대상이 없는 기술이 포함된 명제의 경우에도 명\n제의 분석을 통해 명제의 참과 거짓이 결정될 수 있다고 보았다.\n가령 ㉮‘현재 프랑스의 왕은 남성이다.’라는 명제를 보면 프랑스\n는 현재 군주제가 아니므로 ‘현재 프랑스의 왕’이라는 기술은 지\n시하는 대상이 없다. 이럴 경우, 러셀은 지시하는 대상이 없는\n기술이 포함되면 명제 자체가 거짓이라고 봄으로써 ‘현재 프랑스\n의 왕은 남성이다.’라는 명제의 참과 거짓이 결정될 수 있다고 보\n았다."
+        }
+      ]
+    },
+    {
+      "label": "(나)",
+      "title": "리오타르의 언어 게임과 지식론",
+      "source": "확인 필요",
+      "paragraphs": [
+        {
+          "paragraphNumber": 1,
+          "text": "리오타르는 세계가 다원성을 지니고 있다고 보고, 세계를 이질\n적인 언어 게임이 공존하는 장으로 이해하였다. 리오타르는 절대\n적 원리나 권위에 의해 진리가 정당화되는 것을 부정하며, 어떤\n하나의 보편적 체계로 세계를 온전하게 설명하는 것은 불가능하\n다고 보았다. 리오타르는 언어에 주목하여 세계를 새롭게 이해하\n고자 하였다.\n리오타르는 우리가 언어를 사용하는 상황을 언어 게임이라고\n하였다. 이는 게임마다 임의로 만들어지는 고유의 규칙이 있듯\n이, 언어를 사용하는 상황에서도 언어 사용자들의 암묵적 계약에\n의한 고유의 규칙이 있다는 생각에서 비롯된 것이다. 언어는 그\n사용에 따라 의미가 달라지므로 언어 게임은 과학적 언어 게임,\n윤리적 언어 게임 등 그 종류가 무한대로 확장될 수 있다. 이러\n한 맥락에서 사회는 서로 다른 언어 게임을 수행하는 집단들이\n각자의 문화를 지닌 채 공존하고 있는 장이라고 볼 수 있다. 리\n오타르는 서로 다른 언어 게임 간에는 공약불가능성이 존재한다\n고 보았는데, 공약불가능성이란 공통적인 척도로 묶일 수 없음을\n의미한다. 이질적인 언어 게임은 공통된 규칙이 존재하지 않고\n공통된 기준에 ⓓ따라 평가하거나 상호 비교할 수 없다. 이 때\n문에 언어 게임 간의 합의를 이루는 것은 원칙적으로 불가능하다.\n이에 따라 리오타르는 언어 게임 간의 이질성을 인정해야 한다고\n보았다.\n언어 게임 간의 합의가 어렵다는 것은 문장 우주를 통해서도\n살펴볼 수 있다. 문장 우주 안에는 발신자, 수신자, 지시되는 대\n상, 의미가 포함되어 있는데, 이 네 가지 구성 요소 간의 관계는\n고정되어 있지 않으므로 문장 우주는 다의성을 ⓔ지닌다. 가령\n‘정의’라는 언어 기호는 발신자, 수신자가 누구이고 서로 어떤 관\n계를 맺고 있는지 등에 따라 그 의미가 달라진다. 리오타르의 시\n각에서 이 네 가지 요소들은 문장 우주 안에서 고정되어 있지\n않기 때문에, 서로 다른 언어 게임 간에 합의를 이루는 것은 더\n욱 불가능한 일이 된다고 할 수 있다.\n이런 관점에서 리오타르는 각기 다른 언어 게임에 속한 ㉡지식\n들이 공통된 기준에 의해 정당화될 수 없다고 보았다. 그는 한\n지식이 속한 언어 게임의 규칙을 다른 지식이 속한 언어 게임에\n그대로 적용할 수 없다고 보았다. 지식에는 대표적으로 서사적\n지식과 과학적 지식이 있다. 서사적 지식은 신화를 통해 자연의\n상태를 설명하거나 공동체 구성원이 무엇을 해야 하는지를 제시\n하는 것 등을 이르고, 과학적 지식은 증명을 통해 진술의 참과\n거짓을 판별하는 지식을 이른다. 이때 서사적 지식과 과학적 지\n식은 각 지식이 속한 언어 게임의 규칙을 따른다. 이는 서사적 지\n식과 과학적 지식 중 어느 하나가 다른 것보다 더 우선시되거나\n정당화될 수 없다는 것을 의미한다."
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "number": 4,
+      "stem": "[4~9] 다음 글을 읽고 물음에 답하시오.\n(가)\n러셀은 세계를 객관적 실재로 이해했다. 러셀에 따르면 명제는\n세계에 존재하는 사실을 문장이라는 형식으로 드러내는 언어적\n표현이다. 러셀은 명제가 그 사실을 올바르게 기술하고 있는지를\n논리적으로 분석하여 참과 거짓을 결정할 수 있다고 보았는데,\n명제가 세계와 대응되면 그 명제는 참이며 명제가 세계와 대응\n하지 않으면 거짓이라고 하였다. 러셀은 과학이나 윤리 등 서로\n다른 영역도, 명제로 표현된 것과 세계와의 대응 여부로 참과 거\n짓을 결정한다는 점에서 공통의 평가 방식을 지닌다고 보았다.\n러셀은 명제를 분석해 세계와의 대응 관계를 살펴봄으로써 진\n리에 대한 지식을 얻을 수 있다고 보았다. 진리에 대한 지식이란\n세계와의 대응 여부에 대해 판단하여 명제가 참임을 ⓐ아는 것\n을 의미한다. 명제에 있는 여러 사실들의 관계를 세계의 사실 관\n계와 일치하게 판단한 경우 그 판단은 참이다. 러셀은 세계에\n대한 앎인 ㉠지식을 진리에 대한 지식과 사물에 대한 지식으로\n나누었는데, 이때 진리에 대한 지식은 사물에 대한 지식이 바탕\n이 된다.\n사물에 대한 지식은 세계에 그 대상이 있다는 것을 아는 것을\n의미한다. 러셀은 사물에 대한 지식을 다시 직접적 인식에 의한\n지식과, 기술에 의한 지식으로 구분한다. 이때 직접적 인식에 의\n한 지식은 대상을 직접적으로 대면함으로써 우리의 감각에 주어\n지는 감각 자료에 대한 지식이 대표적인데, ‘장미’와 같은 구체적\n으로 존재하는 대상은 물론, ‘붉음’ 같은 속성이나 ‘다양성’ 같은\n관념 등도 직접적 인식의 대상이 된다. 러셀은 직접적 인식에 의\n한 지식을 실제 경험을 통해 지각한다는 점에서 가장 확실하고\n기초적인 지식으로 ⓑ보았다. 러셀은 명제를 분석함으로써 세계\n에 대한 모든 지식을 가장 확실한, 직접적 인식에 의한 지식으로\n환원하고자 하였다.\n기술에 의한 지식은 대상을 직접적으로 대면하지 않았더라도\n기술에 의해 대상을 간접적으로 인식하는 것을 일컫는다. 이때\n기술은 어떤 존재하는 대상을 직접적으로 가리키는 말이 아니라\n그것에 대해 서술하는 말이다. 기술에 의한 지식은 그 기술에 부\n합하는 대상의 존재를, 우리가 직접적으로 인식한 것에서부터 추\n론해 아는 것이라는 점에서 직접적 인식에 기반하며, 우리의 지\n식이 개인적 경험의 한계를 ⓒ넘을 수 있게 한다. 또한 기술에\n의한 지식은 직접적 인식에 의한 지식과 달리 대상을 직접적으\n로 대면하지 않은 사람에게도 전달될 수 있다.\n러셀은 지시 대상이 없는 기술이 포함된 명제의 경우에도 명\n제의 분석을 통해 명제의 참과 거짓이 결정될 수 있다고 보았다.\n가령 ㉮‘현재 프랑스의 왕은 남성이다.’라는 명제를 보면 프랑스\n는 현재 군주제가 아니므로 ‘현재 프랑스의 왕’이라는 기술은 지\n시하는 대상이 없다. 이럴 경우, 러셀은 지시하는 대상이 없는\n기술이 포함되면 명제 자체가 거짓이라고 봄으로써 ‘현재 프랑스\n의 왕은 남성이다.’라는 명제의 참과 거짓이 결정될 수 있다고 보\n았다.\n(나)\n리오타르는 세계가 다원성을 지니고 있다고 보고, 세계를 이질\n적인 언어 게임이 공존하는 장으로 이해하였다. 리오타르는 절대\n적 원리나 권위에 의해 진리가 정당화되는 것을 부정하며, 어떤\n하나의 보편적 체계로 세계를 온전하게 설명하는 것은 불가능하\n다고 보았다. 리오타르는 언어에 주목하여 세계를 새롭게 이해하\n고자 하였다.\n리오타르는 우리가 언어를 사용하는 상황을 언어 게임이라고\n하였다. 이는 게임마다 임의로 만들어지는 고유의 규칙이 있듯\n이, 언어를 사용하는 상황에서도 언어 사용자들의 암묵적 계약에\n의한 고유의 규칙이 있다는 생각에서 비롯된 것이다. 언어는 그\n사용에 따라 의미가 달라지므로 언어 게임은 과학적 언어 게임,\n윤리적 언어 게임 등 그 종류가 무한대로 확장될 수 있다. 이러\n한 맥락에서 사회는 서로 다른 언어 게임을 수행하는 집단들이\n각자의 문화를 지닌 채 공존하고 있는 장이라고 볼 수 있다. 리\n오타르는 서로 다른 언어 게임 간에는 공약불가능성이 존재한다\n고 보았는데, 공약불가능성이란 공통적인 척도로 묶일 수 없음을\n의미한다. 이질적인 언어 게임은 공통된 규칙이 존재하지 않고\n공통된 기준에 ⓓ따라 평가하거나 상호 비교할 수 없다. 이 때\n문에 언어 게임 간의 합의를 이루는 것은 원칙적으로 불가능하다.\n이에 따라 리오타르는 언어 게임 간의 이질성을 인정해야 한다고\n보았다.\n언어 게임 간의 합의가 어렵다는 것은 문장 우주를 통해서도\n살펴볼 수 있다. 문장 우주 안에는 발신자, 수신자, 지시되는 대\n상, 의미가 포함되어 있는데, 이 네 가지 구성 요소 간의 관계는\n고정되어 있지 않으므로 문장 우주는 다의성을 ⓔ지닌다. 가령\n‘정의’라는 언어 기호는 발신자, 수신자가 누구이고 서로 어떤 관\n계를 맺고 있는지 등에 따라 그 의미가 달라진다. 리오타르의 시\n각에서 이 네 가지 요소들은 문장 우주 안에서 고정되어 있지\n않기 때문에, 서로 다른 언어 게임 간에 합의를 이루는 것은 더\n욱 불가능한 일이 된다고 할 수 있다.\n이런 관점에서 리오타르는 각기 다른 언어 게임에 속한 ㉡지식\n들이 공통된 기준에 의해 정당화될 수 없다고 보았다. 그는 한\n지식이 속한 언어 게임의 규칙을 다른 지식이 속한 언어 게임에\n그대로 적용할 수 없다고 보았다. 지식에는 대표적으로 서사적\n지식과 과학적 지식이 있다. 서사적 지식은 신화를 통해 자연의\n상태를 설명하거나 공동체 구성원이 무엇을 해야 하는지를 제시\n하는 것 등을 이르고, 과학적 지식은 증명을 통해 진술의 참과\n거짓을 판별하는 지식을 이른다. 이때 서사적 지식과 과학적 지\n식은 각 지식이 속한 언어 게임의 규칙을 따른다. 이는 서사적 지\n식과 과학적 지식 중 어느 하나가 다른 것보다 더 우선시되거나\n정당화될 수 없다는 것을 의미한다.\n4. (가)와 (나)에 대한 설명으로 가장 적절한 것은?",
+      "points": 2,
+      "hasView": false,
+      "view": "",
+      "choices": [
+        {
+          "number": 1,
+          "text": "(가)는 (나)와 달리 세계가 무엇인지에 대한 철학자들의 견해를\n비교하고 각각의 한계를 드러내고 있다."
+        },
+        {
+          "number": 2,
+          "text": "(가)는 (나)와 달리 지식에 대한 철학자의 이론을 설명하고 이의\n배경이 된 사회적 현상을 소개하고 있다."
+        },
+        {
+          "number": 3,
+          "text": "(나)는 (가)와 달리 지식을 유형별로 분류하고 각각의 장단점을\n비교하여 제시하고 있다."
+        },
+        {
+          "number": 4,
+          "text": "(가)와 (나)는 모두, 세계와 지식에 대한 특정 철학자의 관점을\n서술하고 있다."
+        },
+        {
+          "number": 5,
+          "text": "(가)와 (나)는 모두, 지식에 대한 통념을 제시하고 지식의 발달\n과정을 통시적으로 드러내고 있다."
+        }
+      ],
+      "needsReview": [
+        "diagram"
+      ],
+      "answer": 4,
+      "explanation": {
+        "main": "4. [출제의도] 서술상 특징 파악하기\n(가)는 세계를 객관적 실재로 이해하고, 지식을 진리\n에 대한 지식과 사물에 대한 지식으로 나눈 러셀의\n관점을 서술하고 있다. (나)는 세계가 다원성을 지니\n고 있다고 보고, 각 지식을 각각의 언어 게임에 속한\n것으로 본 리오타르의 관점을 서술하고 있다. 따라서\n적절하다.",
+        "evidence": "확인 필요",
+        "choiceExplanations": {
+          "1": "해설 확인 필요",
+          "2": "해설 확인 필요",
+          "3": "해설 확인 필요",
+          "4": "해설 확인 필요",
+          "5": "해설 확인 필요"
+        },
+        "trapType": "AI 분류 필요"
+      },
+      "pdfPage": 2
+    },
+    {
+      "number": 5,
+      "stem": "(가), (나)에 대한 이해로 적절하지 않은 것은?",
+      "points": 2,
+      "hasView": false,
+      "view": "",
+      "choices": [
+        {
+          "number": 1,
+          "text": "(가): 과학이나 윤리 등 서로 다른 영역도 공통의 평가 방식을 지\n닌다."
+        },
+        {
+          "number": 2,
+          "text": "(가): 직접적 인식의 대상에는 구체적으로 존재하는 대상뿐 아니\n라 속성이나 관념도 포함된다."
+        },
+        {
+          "number": 3,
+          "text": "(나): 언어 게임은 종류가 무한대로 확장될 수 있다."
+        },
+        {
+          "number": 4,
+          "text": "(나): 서로 다른 언어 게임 간의 합의는 원칙적으로 불가능하다."
+        },
+        {
+          "number": 5,
+          "text": "(나): 문장 우주 안에 있는 구성 요소 간의 관계는 고정되어 있다."
+        }
+      ],
+      "needsReview": [
+        "diagram"
+      ],
+      "answer": 5,
+      "explanation": {
+        "main": "5. [출제의도] 사실적 정보 이해하기\n(나)의 3문단에서 ‘문장 우주 안’에 있는 ‘네 가지 구\n성 요소 간의 관계는 고정되어 있지 않’다고 하였으\n므로 적절하지 않다.\n① (가)의 1문단에서 ‘과학이나 윤리 등 서로 다른\n영역도, 명제로 표현된 것과 세계와의 대응 여부로\n참과 거짓을 결정한다는 점에서 공통의 평가 방식을\n지닌다고 보았다’라고 하였으므로 적절하다. ② (가)\n의 3문단에서 ‘직접적 인식에 의한 지식은 대상을 직\n접적으로 대면함으로써 우리의 감각에 주어지는 감\n각 자료에 대한 지식이 대표적’이며 ‘‘장미’와 같은\n구체적으로 존재하는 대상은 물론, ‘붉음’ 같은 속성\n이나 ‘다양성’ 같은 관념 등도 직접적 인식의 대상이\n된다’라고 하였으므로 적절하다. ③ (나)의 2문단에\n서 ‘언어 게임은 과학적 언어 게임, 윤리적 언어 게\n임 등 그 종류가 무한대로 확장될 수 있다’라고 하였\n으므로 적절하다. ④ (나)의 2문단에서 ‘언어 게임\n간의 합의를 이루는 것은 원칙적으로 불가능하다’라\n고 하였으므로 적절하다.",
+        "evidence": "확인 필요",
+        "choiceExplanations": {
+          "1": "(가)의 1문단에서 ‘과학이나 윤리 등 서로 다른\n영역도, 명제로 표현된 것과 세계와의 대응 여부로\n참과 거짓을 결정한다는 점에서 공통의 평가 방식을\n지닌다고 보았다’라고 하였으므로 적절하다.",
+          "2": "(가)\n의 3문단에서 ‘직접적 인식에 의한 지식은 대상을 직\n접적으로 대면함으로써 우리의 감각에 주어지는 감\n각 자료에 대한 지식이 대표적’이며 ‘‘장미’와 같은\n구체적으로 존재하는 대상은 물론, ‘붉음’ 같은 속성\n이나 ‘다양성’ 같은 관념 등도 직접적 인식의 대상이\n된다’라고 하였으므로 적절하다.",
+          "3": "(나)의 2문단에\n서 ‘언어 게임은 과학적 언어 게임, 윤리적 언어 게\n임 등 그 종류가 무한대로 확장될 수 있다’라고 하였\n으므로 적절하다.",
+          "4": "(나)의 2문단에서 ‘언어 게임\n간의 합의를 이루는 것은 원칙적으로 불가능하다’라\n고 하였으므로 적절하다.",
+          "5": "해설 확인 필요"
+        },
+        "trapType": "AI 분류 필요"
+      },
+      "pdfPage": 3
+    },
+    {
+      "number": 6,
+      "stem": "㉠과 ㉡에 대한 설명으로 가장 적절한 것은?",
+      "points": 2,
+      "hasView": false,
+      "view": "",
+      "choices": [
+        {
+          "number": 1,
+          "text": "㉠: 직접적 인식에 의한 지식은 개인적 성격을 지닌다.\n㉡: 과학적 지식은 공동체 구성원이 무엇을 해야 하는지를 제시하\n는 성격을 지닌다."
+        },
+        {
+          "number": 2,
+          "text": "㉠: 사물에 대한 지식은 진리에 대한 지식의 바탕이 된다.\n㉡: 서사적 지식과 과학적 지식 중 어느 하나가 다른 것보다 더 우\n선시될 수 없다."
+        },
+        {
+          "number": 3,
+          "text": "㉠: 직접적 인식에 의한 지식은 진리에 대한 지식으로 환원된다.\n㉡: 서사적 지식은 증명이 바탕이 되어 성립된다."
+        },
+        {
+          "number": 4,
+          "text": "㉠: 모든 지식은 직접 대면한 당사자 외 다른 사람에게 전달될 수\n없다.\n㉡: 가장 대표적인 지식은 자연의 상태에 대해 설명할 수 있다."
+        },
+        {
+          "number": 5,
+          "text": "㉠: 지식은 사물을 서술하는 말을 통해 대상의 존재를 추론해 형성\n된다.\n㉡: 과학적 지식은 공동체 내부의 신화가 바탕이 될 때 형성된다."
+        }
+      ],
+      "needsReview": [
+        "diagram"
+      ],
+      "answer": 2,
+      "explanation": {
+        "main": "6. [출제의도] 핵심 내용 이해하기\n(가)의 2문단에서 ‘진리에 대한 지식은 사물에 대한\n지식이 바탕이 된다’라고 하였으므로 ㉠은 적절하다.\n또한 (나)에서는 4문단에서 ‘서사적 지식과 과학적\n지식 중 어느 하나가 다른 것보다 더 우선시되거나\n정당화될 수 없다’라고 하였으므로 ㉡은 적절하다.",
+        "evidence": "확인 필요",
+        "choiceExplanations": {
+          "1": "해설 확인 필요",
+          "2": "해설 확인 필요",
+          "3": "해설 확인 필요",
+          "4": "해설 확인 필요",
+          "5": "해설 확인 필요"
+        },
+        "trapType": "AI 분류 필요"
+      },
+      "pdfPage": 3
+    },
+    {
+      "number": 7,
+      "stem": "<보기>의 선생님의 질문에 대한 대답으로 가장 적절한 것은?",
+      "points": 2,
+      "hasView": true,
+      "view": "선생님: 스트로슨은 문장의 참과 거짓은 문장의 분석을 통해 결\n정되는 것이 아니라 문장이 실제로 사용되는 상황에 따라 결정\n된다고 보았습니다. 이는 문장이 실제로 존재하는 것에 대해\n다루고 있는 경우에만 문장의 참과 거짓이 결정될 수 있다는\n것을 의미합니다. 현재 프랑스가 군주제가 아닌 상황임을 전제\n로 ㉮에 대한 러셀과 스트로슨의 입장을 비교해 볼까요?",
+      "choices": [
+        {
+          "number": 1,
+          "text": "러셀은 어떤 대상을 지시하는지 분명하지 않아 ㉮의 참과 거짓이\n결정될 수 없다고 보았고, 스트로슨은 문장이 다루고 있는 대상이\n실재할 때 ㉮의 참과 거짓이 결정될 수 있다고 볼 것입니다."
+        },
+        {
+          "number": 2,
+          "text": "러셀은 명제의 분석을 통해 ㉮의 참과 거짓이 결정될 수 있다고\n보았고, 스트로슨은 문장이 실제로 존재하지 않는 것에 대해 다루\n고 있으므로 ㉮의 참과 거짓이 결정될 수 없다고 볼 것입니다."
+        },
+        {
+          "number": 3,
+          "text": "러셀은 지시하는 대상이 존재하기 때문에 ㉮의 참과 거짓이 결정\n될 수 있다고 보았고, 스트로슨은 문장이 구체적 상황 속에서 사\n용되지 않았으므로 ㉮의 참과 거짓이 결정될 수 없다고 볼 것입니다."
+        },
+        {
+          "number": 4,
+          "text": "러셀은 스트로슨과 달리 기술에 지시 대상이 포함되어 있지 않기\n때문에 ㉮의 참과 거짓이 결정될 수 없다고 보았습니다."
+        },
+        {
+          "number": 5,
+          "text": "스트로슨은 러셀과 달리 문장이 사용된 상황을 고려하지 않고 문\n장 자체의 의미를 분석하는 방법으로 ㉮의 참과 거짓이 결정될 수\n있다고 볼 것입니다.\n영역 3"
+        }
+      ],
+      "needsReview": [
+        "diagram"
+      ],
+      "answer": 2,
+      "explanation": {
+        "main": "7. [출제의도] 세부 내용 이해하기\n(가)에서 5문단의 ‘러셀은 지시 대상이 없는 기술이\n포함된 명제의 경우에도 명제의 분석을 통해 명제의\n참과 거짓이 결정될 수 있다고 보았다.’를 통해 러셀\n은 지시 대상이 있는 기술뿐 아니라 지시 대상이 없\n는 기술이 포함된 경우에도 명제의 분석을 통해 명\n제의 참과 거짓이 결정된다고 보았음을 알 수 있다.\n또한 5문단에서 ‘러셀은 지시하는 대상이 없는 기술\n이 포함되면 명제 자체가 거짓이라고’ 본다고 했는\n데, ‘‘현재 프랑스의 왕’이라는 기술은 지시하는 대상\n이 없’으므로 ㉮는 러셀의 입장에서 거짓임을 알 수\n있다. 따라서 러셀은 ㉮의 참과 거짓이 결정될 수 있\n다고 보았음을 알 수 있다. <보기>에서 스트로슨은\n‘문장이 실제로 존재하는 것에 대해 다루고 있는 경\n우에만 문장의 참과 거짓이 결정될 수 있다’고 하였\n다. ㉮의 ‘현재 프랑스의 왕’은 현재 프랑스가 군주제\n가 아닌 상황임을 전제로 할 때 실제로 존재하는 것\n이 아니므로 스트로슨은 ㉮는 참과 거짓이 결정될\n수 없다고 볼 것임을 알 수 있다. 따라서 적절하다.",
+        "evidence": "확인 필요",
+        "choiceExplanations": {
+          "1": "해설 확인 필요",
+          "2": "해설 확인 필요",
+          "3": "해설 확인 필요",
+          "4": "해설 확인 필요",
+          "5": "해설 확인 필요"
+        },
+        "trapType": "AI 분류 필요"
+      },
+      "pdfPage": 3
+    },
+    {
+      "number": 8,
+      "stem": "<보기>는 윗글을 이해하기 위한 학습지의 일부이다. 윗글을 읽은\n학생이 <보기>에 대해 보인 반응으로 적절하지 않은 것은? [3점]",
+      "points": 3,
+      "hasView": true,
+      "view": "[학습 활동]\n다음 상황에 러셀과 리오타르의 관점 적용해 보기\nA는 길을 걷다 어떤 소리가 들리는 곳으로 고개를 돌렸다.\nA는 사람들이 폭죽놀이를 하는 것을 보고, 그 소리가 폭죽 소\n리임을 알았다. 폭죽놀이를 하는 것이 보이지 않는 곳까지 갔\n지만 여전히 폭죽 소리는 들렸다. A는 자신의 마을에서 매년\n하는 폭죽놀이를 생각하며 그 소리를 즐거운 추억을 떠올리\n게 하는 소리로 여겼다. 그때 다른 마을에 사는 B는 폭죽놀이\n를 보지 못한 상태에서 A와 만나 폭죽 소리를 들었다. B가 A\n에게 “이 소리는 풍선 터지는 소리구나.”라고 말하자 A는 “이\n소리는 폭죽 소리야.”라며 정확한 사실을 알려 주었다. B의\n마을에서는 폭죽 소리가 멧돼지를 쫓는 데 쓰였기 때문에, B\n는 A에게 “위험하니까 다른 곳으로 가자.”라고 하였다.",
+      "choices": [
+        {
+          "number": 1,
+          "text": "러셀의 관점에서 보면, A가 폭죽놀이를 보면서 자신에게 들리는\n소리가 폭죽 소리임을 인식한 것은, 실제 경험을 통해 지각하여\n얻은 사물에 대한 지식과 관련된 것이겠군."
+        },
+        {
+          "number": 2,
+          "text": "러셀의 관점에서 보면, B가 자신이 들은 소리를 풍선이 터지는 소\n리라고 한 것은, 두 소리 간의 관계를 세계의 사실 관계와 일치하\n게 판단하지 못하였다는 점에서 거짓이겠군."
+        },
+        {
+          "number": 3,
+          "text": "러셀의 관점에서 보면, A가 폭죽놀이가 안 보일 때 “이 소리는 폭\n죽 소리야.”라고 한 것은, 직접 대면하지 않은 것에 대한 기술이\n포함되어 있으므로 세계와의 대응 관계를 알 수 없는 명제이겠군."
+        },
+        {
+          "number": 4,
+          "text": "리오타르의 관점에서 보면, A로부터 “이 소리는 폭죽 소리야.”라\n는 말을 듣고 B가 위험한 상황을 떠올린 것은, 언어 기호가 발신\n자와 수신자가 누구인지에 따라 그 의미가 달라진 것이겠군."
+        },
+        {
+          "number": 5,
+          "text": "리오타르의 관점에서 보면, 같은 폭죽 소리를 A는 즐거운 상황, B\n는 위험한 상황과 관련된 소리로 여기는 것은, 언어 게임 간의 공\n약불가능성으로 인해 공통된 기준으로 평가될 수 없는 것이겠군."
+        }
+      ],
+      "needsReview": [
+        "diagram"
+      ],
+      "answer": 3,
+      "explanation": {
+        "main": "8. [출제의도] 구체적 상황에 적용하기\n(가)의 3문단에서 ‘대상을 직접적으로 대면’하면 ‘감\n각에 주어지는 감각 자료에 대한 지식’을 얻을 수 있\n다고 하였는데, 이를 통해 A가 폭죽 소리를 듣고 있\n다는 것은 ‘폭죽 소리’를 직접적으로 대면하고 있음\n을 나타냄을 알 수 있다. 또한 (가)의 4문단에서 ‘기\n술은 어떤 존재하는 대상을 직접적으로 가리키는 말\n이 아니라 그것에 대해 서술하는 말이다’라고 한 것\n을 통해 “이 소리는 폭죽 소리야.”는 직접 대면한 ‘폭\n죽 소리’에 대한 기술이 포함되어 있는 명제임을 알\n수 있다. 1문단의 ‘명제가 세계와 대응되면 그 명제\n는 참이며~대응하지 않으면 거짓’을 통해 러셀의\n관점에서 참과 거짓은 명제와 세계의 대응 관계를\n통해 결정됨을 알 수 있는데, “이 소리는 폭죽 소리\n야.”라는 명제는 A가 들은 소리가 실제 폭죽 소리임\n을 나타낸다는 점에서, A가 들은 소리가 세계와 대\n응하고 있음을 나타내 참인 명제임을 알 수 있다. 따\n라서 이 진술은 적절하지 않다.\n① <보기>에서 A는 실제로 폭죽놀이를 보고 폭죽\n소리를 들었는데, 이는 (가)의 3문단을 볼 때 ‘대상\n을 직접적으로 대면함으로써 우리의 감각에 주어지\n는 감각 자료에 대한 지식’, 즉 ‘직접적 인식에 의한\n지식’과 관련된 것이다. 직접적 인식에 의한 지식은\n‘실제 경험을 통해 지각’하며 얻고 ‘사물에 대한 지\n식’에 포함된다고 하였으므로 적절하다. ② <보기>\n에서 B는 자신이 들은 소리를 풍선이 터지는 소리라\n고 하였는데, 이는 러셀의 관점에서 자신이 들은 폭\n죽 소리를 풍선이 터지는 소리에 대응시킨 것으로,\n두 소리 간의 관계를 실제 세계의 사실 관계와 일치\n하게 판단하지 못한 것을 보여 준다. (가)의 2문단에\n서 ‘여러 사실들의 관계를 세계의 사실 관계와 일치\n하게 판단한 경우 그 판단은 참이’라고 하였으므로\n이 진술은 적절하다. ④ ‘폭죽 소리’라는 언어 기호는\n발신자 A에게는 즐거운 상황과 관련된 소리라는 의\n미이고, 수신자 B에게는 위험한 상황과 관련된 소리\n라는 의미인데, (나)의 3문단을 보면 ‘문장 우주 안’\n에 있는 ‘발신자, 수신자, 지시되는 대상, 의미’ 간의\n관계는 ‘고정되어 있지 않’으며 ‘언어 기호는 발신자,\n수신자가 누구이고 서로 어떤 관계를 맺고 있는지\n등에 따라 그 의미가 달라진다’고 하였다. 이를 통해\n발신자와 수신자가 누구인지에 따라 ‘폭죽 소리’라는\n언어 기호의 의미가 다르다는 것을 알 수 있으므로\n적절하다. ⑤ 같은 폭죽 소리에 대해 A가 ‘매년 하는\n폭죽놀이’에 쓰여 ‘즐거운 추억을 떠올리게 하는 소\n리’로, B가 마을에서 ‘폭죽 소리가 멧돼지를 쫓는 데\n쓰’여 위험한 상황과 관련된 소리로 여기는 것은, 폭\n죽과 관련된 각각의 마을의 문화가 서로 다르기 때\n문인데, (나)의 2문단에서 ‘서로 다른 언어 게임을\n수행하는 집단들’은 ‘각자의 문화를 지’니고 있다고\n한 것을 볼 때 A와 B는 서로 다른 언어 게임을 수행\n한다고 할 수 있다. ‘서로 다른 언어 게임 간에는 공\n약불가능성이 존재한다’고 하였고, ‘이질적인 언어 게\n임’은 ‘공통된 기준에 따라 평가’할 수 없다고 하였으\n므로 이 진술은 적절하다.",
+        "evidence": "확인 필요",
+        "choiceExplanations": {
+          "1": "<보기>에서 A는 실제로 폭죽놀이를 보고 폭죽\n소리를 들었는데, 이는 (가)의 3문단을 볼 때 ‘대상\n을 직접적으로 대면함으로써 우리의 감각에 주어지\n는 감각 자료에 대한 지식’, 즉 ‘직접적 인식에 의한\n지식’과 관련된 것이다. 직접적 인식에 의한 지식은\n‘실제 경험을 통해 지각’하며 얻고 ‘사물에 대한 지\n식’에 포함된다고 하였으므로 적절하다.",
+          "2": "<보기>\n에서 B는 자신이 들은 소리를 풍선이 터지는 소리라\n고 하였는데, 이는 러셀의 관점에서 자신이 들은 폭\n죽 소리를 풍선이 터지는 소리에 대응시킨 것으로,\n두 소리 간의 관계를 실제 세계의 사실 관계와 일치\n하게 판단하지 못한 것을 보여 준다. (가)의 2문단에\n서 ‘여러 사실들의 관계를 세계의 사실 관계와 일치\n하게 판단한 경우 그 판단은 참이’라고 하였으므로\n이 진술은 적절하다.",
+          "3": "해설 확인 필요",
+          "4": "‘폭죽 소리’라는 언어 기호는\n발신자 A에게는 즐거운 상황과 관련된 소리라는 의\n미이고, 수신자 B에게는 위험한 상황과 관련된 소리\n라는 의미인데, (나)의 3문단을 보면 ‘문장 우주 안’\n에 있는 ‘발신자, 수신자, 지시되는 대상, 의미’ 간의\n관계는 ‘고정되어 있지 않’으며 ‘언어 기호는 발신자,\n수신자가 누구이고 서로 어떤 관계를 맺고 있는지\n등에 따라 그 의미가 달라진다’고 하였다. 이를 통해\n발신자와 수신자가 누구인지에 따라 ‘폭죽 소리’라는\n언어 기호의 의미가 다르다는 것을 알 수 있으므로\n적절하다.",
+          "5": "같은 폭죽 소리에 대해 A가 ‘매년 하는\n폭죽놀이’에 쓰여 ‘즐거운 추억을 떠올리게 하는 소\n리’로, B가 마을에서 ‘폭죽 소리가 멧돼지를 쫓는 데\n쓰’여 위험한 상황과 관련된 소리로 여기는 것은, 폭\n죽과 관련된 각각의 마을의 문화가 서로 다르기 때\n문인데, (나)의 2문단에서 ‘서로 다른 언어 게임을\n수행하는 집단들’은 ‘각자의 문화를 지’니고 있다고\n한 것을 볼 때 A와 B는 서로 다른 언어 게임을 수행\n한다고 할 수 있다. ‘서로 다른 언어 게임 간에는 공\n약불가능성이 존재한다’고 하였고, ‘이질적인 언어 게\n임’은 ‘공통된 기준에 따라 평가’할 수 없다고 하였으\n므로 이 진술은 적절하다."
+        },
+        "trapType": "AI 분류 필요"
+      },
+      "pdfPage": 3
+    },
+    {
+      "number": 9,
+      "stem": "문맥상 ⓐ~ⓔ와 가장 가까운 의미로 쓰인 것은?",
+      "points": 2,
+      "hasView": false,
+      "view": "",
+      "choices": [
+        {
+          "number": 1,
+          "text": "ⓐ: 돈만 아는 사람을 자린고비라 부른다."
+        },
+        {
+          "number": 2,
+          "text": "ⓑ: 손해를 보면서 장사를 할 수는 없지."
+        },
+        {
+          "number": 3,
+          "text": "ⓒ: 그의 노래 실력은 프로의 수준을 이미 넘었다."
+        },
+        {
+          "number": 4,
+          "text": "ⓓ: 해안을 따라 올라가니 내가 생각한 길이 나왔다."
+        },
+        {
+          "number": 5,
+          "text": "ⓔ: 나는 어머니께서 주신 목걸이를 늘 몸에 지니고 다닌다."
+        }
+      ],
+      "needsReview": [
+        "diagram"
+      ],
+      "answer": 3,
+      "explanation": {
+        "main": "9. [출제의도] 어휘의 문맥적 의미 파악하기\nⓒ 는 ‘일 정 한 기 준 이 나 한 계 따 위 를 벗 어 나 지 나 다 .’\n라 는 의 미 이 고 , 이 는 밑 줄 친 부 분 의 ‘넘 었 다 ’ 와 문 맥\n적 의 미 가 유 사 하 므 로 적 절 하 다 .\n① ⓐ는 ‘교육이나 경험, 사고 행위를 통하여 사물이\n나 상황에 대한 정보나 지식을 갖추다.’라는 의미인\n데, 밑줄 친 부분은 ‘어떤 사람이나 사물에 대하여\n소중히 생각하다.’라는 의미이므로 적절하지 않다. ②\nⓑ는 ‘대상을 어떠하다고 평가하다.’라는 의미인데,\n밑줄 친 부분은 ‘어떤 일을 당하거나 겪거나 얻어 가\n지다.’라는 의미이므로 적절하지 않다. ④ ⓓ는 ‘어떤\n경우, 사실이나 기준 따위에 의거하다.’라는 의미인\n데, 밑줄 친 부분은 ‘일정한 선 따위를 그대로 밟아\n움직이다.’라는 의미이므로 적절하지 않다. ⑤ ⓔ는\n‘바탕으로 갖추고 있다.’라는 의미인데, 밑줄 친 부분\n은 ‘몸에 간직하여 가지다.’라는 의미이므로 적절하지\n않다.",
+        "evidence": "확인 필요",
+        "choiceExplanations": {
+          "1": "ⓐ는 ‘교육이나 경험, 사고 행위를 통하여 사물이\n나 상황에 대한 정보나 지식을 갖추다.’라는 의미인\n데, 밑줄 친 부분은 ‘어떤 사람이나 사물에 대하여\n소중히 생각하다.’라는 의미이므로 적절하지 않다.",
+          "2": "ⓑ는 ‘대상을 어떠하다고 평가하다.’라는 의미인데,\n밑줄 친 부분은 ‘어떤 일을 당하거나 겪거나 얻어 가\n지다.’라는 의미이므로 적절하지 않다.",
+          "3": "해설 확인 필요",
+          "4": "ⓓ는 ‘어떤\n경우, 사실이나 기준 따위에 의거하다.’라는 의미인\n데, 밑줄 친 부분은 ‘일정한 선 따위를 그대로 밟아\n움직이다.’라는 의미이므로 적절하지 않다.",
+          "5": "ⓔ는\n‘바탕으로 갖추고 있다.’라는 의미인데, 밑줄 친 부분\n은 ‘몸에 간직하여 가지다.’라는 의미이므로 적절하지\n않다."
+        },
+        "trapType": "AI 분류 필요"
+      },
+      "pdfPage": 3
+    }
+  ],
+  "submissionConfig": {
+    "mode": "google",
+    "teacherEmail": "",
+    "googleScriptUrl": "https://script.google.com/macros/s/AKfycbwbVvkHed35wCaD19SC2aTsTChRIz449k9bqbRCdzCgj4hPZdSCcN1EwhoUH8_CGqM/exec",
+    "googleDrivePdfUrl": ""
+  }
+};
+const STORAGE_KEY = "wrongnote:" + DATA.meta.passageId;
+const PENDING_KEY = "wrongnote:pending:" + DATA.meta.passageId;
+const HIGHLIGHT_KEY = STORAGE_KEY + ":highlights";
+let currentHighlightColor = "yellow";
+let savedHighlightRange = null;
+const $ = (id) => document.getElementById(id);
+function esc(s) { return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c])); }
+function prose(s) { return esc(s).replace(/\r?\n/g, " ").replace(/\s+/g, " ").trim(); }
+function applyUnderline(html) { return String(html ?? "").replace(/([㉠-㉿ⓐ-ⓩ㉮-㉻])([가-힣a-zA-Z0-9·]+)/g, '$1<u>$2</u>'); }
+function applySectionLabels(html) {
+  html = String(html ?? "");
+  html = html.replace(/\[([A-Z])\]/g, '<span class="section-label">[$1]</span>');
+  html = html.replace(/\[([가-힣][가-힣\s\d]*)\]/g, '<span class="concept-label">[$1]</span>');
+  return html;
+}
+function choiceSymbol(n) { return ["①","②","③","④","⑤"][Number(n)-1] || n; }
+function sectionSlug(meta) {
+  const id = String(meta?.passageId || "");
+  return id.startsWith("set_") ? id.split("_").slice(3).join("_") : "";
+}
+function sectionName(meta) {
+  const slug = sectionSlug(meta);
+  return slug ? `${meta.section} [${slug}]` : meta.section;
+}
+function sourceText(value) {
+  const v = String(value ?? "").trim();
+  return v && v !== "확인 필요" ? v : "수능 출제 지문(원전 미표기)";
+}
+function renderMeta() {
+  const m = DATA.meta;
+  $("title").textContent = `${m.examName} | ${m.subject} ${sectionName(m)} (${m.questionRange})`;
+  $("meta").innerHTML = [
+    ["시험일", m.examDate], ["영역", `${m.subject} / ${sectionName(m)}`],
+    ["문항 범위", m.questionRange], ["글/작품", m.sourceTitle],
+    ["출전", sourceText(m.source)]
+  ].map(([k,v]) => `<div><span class="meta-label">${esc(k)}:</span><span class="meta-value">${esc(v)}</span></div>`).join("");
+  $("today").value ||= new Date().toISOString().slice(0,10);
+}
+function renderPassages() {
+  $("passages").innerHTML = DATA.passages.map((p, idx) => `
+    <article class="passage-card">
+      ${p.label ? `<span class="passage-label">${esc(p.label)}</span>` : ""}
+      <div class="passage-title">${esc(p.title)}</div>
+      <div class="passage-source">출전: ${esc(sourceText(p.source || DATA.meta.source))}</div>
+      <div class="passage-box markable" data-highlight-id="passage-${idx}">${p.paragraphs.map(x => {
+        const text = esc(x.text);
+        const sec = DATA.meta.section || "";
+        const isPoetry = sec.includes("시") || sec.includes("가") || sec.includes("수필") || sec.includes("갈래");
+        const processed = isPoetry ? text : text.replace(/\r?\n/g, " ").replace(/\s+/g, " ");
+        return applySectionLabels(applyUnderline(processed));
+      }).join("\n\n")}</div>
+      <div class="passage-reflection">
+        <label>지문 난이도</label>
+        <div class="difficulty-row">
+          ${["쉬움","중간","어려움","매우 어려움"].map(level => `
+            <label><input type="radio" name="passage-difficulty-${idx}" data-passage-difficulty="${idx}" value="${level}"> ${level}</label>
+          `).join("")}
+        </div>
+        <div class="reflection-grid">
+          <div><label>어려웠던 점</label><textarea data-passage-note="${idx}-difficulty"></textarea></div>
+          <div><label>느낀 점</label><textarea data-passage-note="${idx}-feeling"></textarea></div>
+          <div><label>몰랐던 단어</label><textarea data-passage-note="${idx}-vocab"></textarea></div>
+        </div>
+      </div>
+    </article>`).join("");
+}
+function renderQuestions() {
+  $("questions").innerHTML = DATA.questions.map(q => `
+    <article class="question-card" id="q-${q.number}" data-answer="${q.answer}">
+      <div class="question-head"><span class="q-num">${q.number}번</span><span class="q-points">${q.points || 2}점</span><span class="result" id="result-${q.number}"></span></div>
+      <div class="question-body">
+        ${q.needsReview && q.needsReview.includes("diagram") ? `
+          <div class="visual-warning" style="border-left: 4px solid #ea580c; background: #fff7ed; color: #c2410c; padding: 12px; border-radius: 8px;">
+            ※ 이 문항은 그림/도식 확인이 필요합니다.
+            <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
+              <button class="secondary" style="padding: 6px 12px; font-size: 12px; cursor: pointer; border-radius: 6px; background: #ea580c; color: #fff; border: none; font-weight: 800;" onclick="togglePdfView(${q.number})">화면에서 보기 / 접기</button>
+              <a href="${DATA.submissionConfig?.googleDrivePdfUrl || "problem.pdf"}" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #334155; color: #fff; text-decoration: none; font-weight: 800;">새 탭에서 PDF 열기 (모바일 권장)</a>
+            </div>
+            <div id="pdf-view-${q.number}" style="display: none; margin-top: 10px; border: 1px solid #ffedd5; border-radius: 6px; overflow: hidden; height: 500px;">
+              <iframe src="${DATA.submissionConfig?.googleDrivePdfUrl || "problem.pdf"}${q.pdfPage ? '#page=' + q.pdfPage : ''}" width="100%" height="100%" style="border: none;"></iframe>
+            </div>
+          </div>` : ""}
+        <div class="stem markable" data-highlight-id="q-${q.number}-stem">${applySectionLabels(applyUnderline(esc(q.stem)))}</div>
+        ${q.hasView && q.view ? `<div class="view markable" data-highlight-id="q-${q.number}-view">${applySectionLabels(applyUnderline(esc(q.view)))}</div>` : ""}
+        <ul class="choices">
+          ${q.choices.map(c => `<li><label class="choice" data-q="${q.number}" data-choice="${c.number}"><input type="radio" name="q${q.number}" value="${c.number}"><span class="choice-text markable" data-highlight-id="q-${q.number}-choice-${c.number}"><b>${choiceSymbol(c.number)}</b> ${applySectionLabels(applyUnderline(esc(c.text)))}</span></label></li>`).join("")}
+        </ul>
+        <div class="explanation">
+          <div class="exp-main">${prose(q.explanation?.main || "해설 확인 필요")}</div>
+          ${[1,2,3,4,5].map(n => `<div class="exp-choice"><b>${choiceSymbol(n)}</b> ${prose(q.explanation?.choiceExplanations?.[String(n)] || "해설 확인 필요")}</div>`).join("")}
+          <div class="note-grid">
+            ${["선택한 이유","정답 근거","본문 근거","선생님께 질문"].map((label, idx) => `<div><label>${label}</label><textarea data-note="${q.number}-${idx}"></textarea></div>`).join("")}
+          </div>
+        </div>
+      </div>
+    </article>`).join("");
+}
+function collectState() {
+  const answers = {};
+  DATA.questions.forEach(q => { const checked = document.querySelector(`input[name="q${q.number}"]:checked`); answers[q.number] = checked ? Number(checked.value) : null; });
+  const answerKey = {};
+  const judgments = {};
+  let correctCount = 0;
+  let wrongCount = 0;
+  let blankCount = 0;
+  DATA.questions.forEach(q => {
+    const selected = answers[q.number];
+    const correct = Number(q.answer);
+    const isBlank = selected === null || selected === undefined || selected === "";
+    const isCorrect = !isBlank && Number(selected) === correct;
+    answerKey[q.number] = correct;
+    if (isBlank) blankCount++;
+    else if (isCorrect) correctCount++;
+    else wrongCount++;
+    judgments[q.number] = { selected, correct, isCorrect, isBlank };
+  });
+  const notes = {};
+  document.querySelectorAll("[data-note]").forEach(el => notes[el.dataset.note] = el.value);
+  const passageReflections = DATA.passages.map((p, idx) => {
+    const checked = document.querySelector(`input[data-passage-difficulty="${idx}"]:checked`);
+    const entry = {
+      label: p.label || "",
+      title: p.title || "",
+      difficulty: checked ? checked.value : "",
+      notes: {}
+    };
+    document.querySelectorAll(`[data-passage-note^="${idx}-"]`).forEach(el => {
+      entry.notes[el.dataset.passageNote.slice(String(idx).length + 1)] = el.value;
+    });
+    return entry;
+  });
+  const student = {
+    name: $("studentName").value, class: $("studentClass").value,
+    email: $("studentEmail").value, today: $("today").value
+  };
+  const totalPoints = DATA.questions.reduce((s, q) => s + (Number(q.points) || 2), 0);
+  const earnedPoints = DATA.questions.reduce((s, q) => {
+    const j = judgments[q.number];
+    return s + (j && j.isCorrect ? (Number(q.points) || 2) : 0);
+  }, 0);
+  const scoreSummary = {
+    totalCount: DATA.questions.length,
+    correctCount,
+    wrongCount,
+    blankCount,
+    totalPoints,
+    earnedPoints,
+    scoreRate: totalPoints ? Math.round((earnedPoints / totalPoints) * 100) : 0
+  };
+  const storedToken = localStorage.getItem(STORAGE_KEY + ":token") || "";
+  return { meta: DATA.meta, student, answers, answerKey, scoreSummary, judgments, notes, highlights: collectHighlights(), passageReflections, token: storedToken, savedAt: new Date().toISOString() };
+}
+function saveStudentIdentity() {
+  const name = $("studentName").value.trim();
+  const cls  = $("studentClass").value.trim();
+  const email = $("studentEmail").value.trim();
+  if (name || cls || email) {
+    try { localStorage.setItem("student:identity", JSON.stringify({ name, "class": cls, email })); } catch(_) {}
+  }
+}
+function closestMarkable(node) {
+  const el = node && (node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement);
+  return el ? el.closest("[data-highlight-id]") : null;
+}
+function setHighlightColor(color) {
+  currentHighlightColor = color || "yellow";
+  document.querySelectorAll(".swatch").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.color === currentHighlightColor);
+  });
+}
+document.addEventListener("click", function(e) {
+  if (e.target.matches(".swatch")) setHighlightColor(e.target.dataset.color);
+  if (e.target.matches("[data-quick-color]")) {
+    e.preventDefault();
+    setHighlightColor(e.target.dataset.quickColor);
+    applyHighlight(savedHighlightRange);
+    hideFloatingHighlight();
+  }
+});
+function rememberSelection() {
+  const sel = window.getSelection();
+  if (!sel || sel.rangeCount === 0 || sel.isCollapsed) return;
+  const range = sel.getRangeAt(0);
+  const box = closestMarkable(range.commonAncestorContainer);
+  if (!box || !box.contains(range.startContainer) || !box.contains(range.endContainer)) return;
+  savedHighlightRange = range.cloneRange();
+  showFloatingHighlight(range);
+}
+function showFloatingHighlight(range) {
+  const tool = $("floatingHighlight");
+  if (!tool) return;
+  const rect = range.getBoundingClientRect();
+  if (!rect || (!rect.width && !rect.height)) return;
+  tool.style.left = Math.max(8, Math.min(window.innerWidth - 180, rect.left + rect.width / 2 - 76)) + "px";
+  tool.style.top = Math.max(8, rect.top - 46) + "px";
+  tool.classList.add("visible");
+}
+function hideFloatingHighlight() {
+  const tool = $("floatingHighlight");
+  if (tool) tool.classList.remove("visible");
+}
+document.addEventListener("selectionchange", function() {
+  setTimeout(rememberSelection, 80);
+});
+document.addEventListener("touchend", function() {
+  setTimeout(rememberSelection, 180);
+});
+function applyHighlight(rangeOverride) {
+  const sel = window.getSelection();
+  const range = rangeOverride || (sel && sel.rangeCount ? sel.getRangeAt(0) : savedHighlightRange);
+  if (!range || range.collapsed) return;
+  const box = closestMarkable(range.commonAncestorContainer);
+  if (!box || !box.contains(range.startContainer) || !box.contains(range.endContainer)) {
+    alert("한 문단이나 한 선택지 안에서만 표시할 수 있습니다.");
+    return;
+  }
+  const mark = document.createElement("mark");
+  mark.className = "student-highlight";
+  mark.dataset.highlightColor = currentHighlightColor;
+  try {
+    mark.appendChild(range.extractContents());
+    range.insertNode(mark);
+    if (sel) sel.removeAllRanges();
+    savedHighlightRange = null;
+    saveHighlights();
+  } catch (err) {
+    alert("선택한 범위는 표시하기 어렵습니다. 조금 더 짧게 선택해 주세요.");
+  }
+}
+function unwrapMark(mark) {
+  const parent = mark.parentNode;
+  while (mark.firstChild) parent.insertBefore(mark.firstChild, mark);
+  parent.removeChild(mark);
+  parent.normalize();
+}
+function removeHighlightAtSelection() {
+  const sel = window.getSelection();
+  if (!sel || sel.rangeCount === 0) return;
+  const el = sel.anchorNode && (sel.anchorNode.nodeType === Node.ELEMENT_NODE ? sel.anchorNode : sel.anchorNode.parentElement);
+  const mark = el ? el.closest("mark.student-highlight") : null;
+  if (mark) {
+    unwrapMark(mark);
+    saveHighlights();
+  }
+}
+function clearAllHighlights() {
+  if (!confirm("모든 형광펜 표시를 지울까요?")) return;
+  document.querySelectorAll("mark.student-highlight").forEach(unwrapMark);
+  saveHighlights();
+}
+function collectHighlights() {
+  const highlights = {};
+  document.querySelectorAll("[data-highlight-id]").forEach(el => {
+    if (el.querySelector("mark.student-highlight")) highlights[el.dataset.highlightId] = el.innerHTML;
+  });
+  return highlights;
+}
+function saveHighlights() {
+  localStorage.setItem(HIGHLIGHT_KEY, JSON.stringify(collectHighlights()));
+}
+function applyStoredHighlights(highlights) {
+  const saved = highlights || JSON.parse(localStorage.getItem(HIGHLIGHT_KEY) || "{}");
+  Object.entries(saved).forEach(([id, html]) => {
+    const el = document.querySelector(`[data-highlight-id="${CSS.escape(id)}"]`);
+    if (el && typeof html === "string") el.innerHTML = html;
+  });
+}
+function saveToLocal() { localStorage.setItem(STORAGE_KEY, JSON.stringify(collectState())); saveStudentIdentity(); alert("저장했습니다."); }
+function loadFromLocal() {
+  const raw = localStorage.getItem(STORAGE_KEY); if (!raw) return;
+  const s = JSON.parse(raw);
+  $("studentName").value = s.student?.name || ""; $("studentClass").value = s.student?.class || "";
+  $("studentEmail").value = s.student?.email || ""; $("today").value = s.student?.today || "";
+  Object.entries(s.answers || {}).forEach(([q,v]) => { const el = document.querySelector(`input[name="q${q}"][value="${v}"]`); if (el) el.checked = true; });
+  Object.entries(s.notes || {}).forEach(([k,v]) => { const el = document.querySelector(`[data-note="${k}"]`); if (el) el.value = v; });
+  (s.passageReflections || []).forEach((entry, idx) => {
+    if (entry.difficulty) {
+      const el = document.querySelector(`input[data-passage-difficulty="${idx}"][value="${entry.difficulty}"]`);
+      if (el) el.checked = true;
+    }
+    Object.entries(entry.notes || {}).forEach(([k,v]) => {
+      const el = document.querySelector(`[data-passage-note="${idx}-${k}"]`);
+      if (el) el.value = v;
+    });
+  });
+  applyStoredHighlights(s.highlights || null);
+}
+function gradeExam() {
+  let correct = 0, earned = 0, total = 0;
+  DATA.questions.forEach(q => {
+    const pts = Number(q.points) || 2;
+    total += pts;
+    const card = $(`q-${q.number}`); card.classList.add("graded");
+    const checked = document.querySelector(`input[name="q${q.number}"]:checked`);
+    const selected = checked ? Number(checked.value) : null;
+    const isCorrect = selected === Number(q.answer);
+    if (isCorrect) { correct++; earned += pts; }
+    card.querySelectorAll(".choice").forEach(label => {
+      const n = Number(label.dataset.choice);
+      label.classList.toggle("correct", n === Number(q.answer));
+      label.classList.toggle("wrong", selected === n && selected !== Number(q.answer));
+    });
+    $(`result-${q.number}`).textContent = isCorrect ? "정답" : `오답 (정답 ${choiceSymbol(q.answer)})`;
+  });
+  $("scorePanel").classList.add("visible");
+  $("scoreNum").textContent = `${earned}점 / ${total}점`;
+  $("scoreDetail").textContent = `정답 ${correct}개, 오답 ${DATA.questions.length - correct}개`;
+  $("submitArea").classList.add("visible");
+  saveToLocal();
+}
+function resetExam() { if (confirm("입력 내용을 초기화할까요?")) { localStorage.removeItem(STORAGE_KEY); localStorage.removeItem(HIGHLIGHT_KEY); location.reload(); } }
+function downloadWrongnote() {
+  const blob = new Blob([JSON.stringify(collectState(), null, 2)], { type: "application/json;charset=utf-8" });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `${DATA.meta.passageId}_wrongnote.json`; a.click(); URL.revokeObjectURL(a.href);
+}
+function loadPendingQueue() {
+  try { return JSON.parse(localStorage.getItem(PENDING_KEY) || "[]"); } catch(_) { return []; }
+}
+function savePendingQueue(queue) {
+  localStorage.setItem(PENDING_KEY, JSON.stringify(queue.slice(-5)));
+}
+function queueSubmission(payload, reason) {
+  const queue = loadPendingQueue();
+  queue.push({ payload, reason: String(reason || ""), queuedAt: new Date().toISOString() });
+  savePendingQueue(queue);
+}
+function postSubmission(payload) {
+  const url = DATA.submissionConfig?.googleScriptUrl;
+  return fetch(url, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload) })
+    .then(res => res.json());
+}
+function retryPendingSubmissions(silent=true) {
+  const url = DATA.submissionConfig?.googleScriptUrl;
+  if (!url || url.includes("여기에_")) return Promise.resolve();
+  const queue = loadPendingQueue();
+  if (!queue.length) return Promise.resolve();
+  const remaining = [];
+  let chain = Promise.resolve();
+  queue.forEach(item => {
+    chain = chain.then(() => postSubmission(item.payload).then(res => {
+      if (!res.ok) remaining.push(item);
+    }).catch(() => remaining.push(item)));
+  });
+  return chain.then(() => {
+    savePendingQueue(remaining);
+    if (!silent && !remaining.length) $("submitStatus").textContent = "보관 중이던 제출까지 모두 전송했습니다.";
+  });
+}
+function submitToTeacher() {
+  const url = DATA.submissionConfig?.googleScriptUrl;
+  if (!url || url.includes("여기에_")) { $("submitStatus").textContent = "제출 URL이 설정되지 않았습니다."; return; }
+  const name = $("studentName").value.trim();
+  if (!name) { $("submitStatus").textContent = "이름을 먼저 입력해 주세요."; return; }
+  saveStudentIdentity();
+  $("submitStatus").textContent = "전송 중...";
+  
+  const linkBox = $("teacherLinkBox");
+  if (linkBox) linkBox.innerHTML = "";
+
+  const payload = collectState();
+  postSubmission(payload)
+    .then(res => {
+      if (res.ok) { 
+        $("submitStatus").textContent = "✅ 선생님께 성공적으로 제출되었습니다!"; 
+        retryPendingSubmissions(true);
+        if (res.token) {
+          localStorage.setItem(STORAGE_KEY + ":token", res.token);
+        }
+        if (res.studentFeedbackUrl) {
+          if (linkBox) {
+            linkBox.innerHTML = `<a href="${res.studentFeedbackUrl}" target="_blank" style="display:inline-block; margin-top:10px; padding:8px 16px; background-color:#11645d; color:#fff; text-decoration:none; border-radius:4px; font-weight:700;">내 피드백 확인 페이지 열기</a>`;
+          }
+        }
+      }
+      else { $("submitStatus").textContent = "❌ 제출 실패: " + (res.message || "알 수 없는 오류"); }
+    })
+    .catch(err => {
+      queueSubmission(payload, err.message);
+      $("submitStatus").textContent = "⚠️ 전송에 실패해 이 브라우저에 임시 보관했습니다. 인터넷 연결 후 다시 제출하면 자동으로 함께 전송됩니다. JSON 다운로드도 백업으로 보관하세요. (" + err.message + ")";
+    });
+}
+function togglePdfView(qNum) {
+  const el = document.getElementById("pdf-view-" + qNum);
+  if (el) {
+    el.style.display = el.style.display === "none" ? "block" : "none";
+  }
+}
+function init() {
+  renderMeta(); renderPassages(); renderQuestions(); loadFromLocal(); applyStoredHighlights();
+  try {
+    const id = JSON.parse(localStorage.getItem("student:identity") || "null");
+    if (id) {
+      if (!$("studentName").value)  $("studentName").value  = id.name  || "";
+      if (!$("studentClass").value) $("studentClass").value = id["class"] || "";
+      if (!$("studentEmail").value) $("studentEmail").value = id.email || "";
+    }
+  } catch(_) {}
+  retryPendingSubmissions(true);
+}
+init();
+</script>
+</body>
+</html>
